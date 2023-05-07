@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="初始配置">
-      <change afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava/src/main/resources/application.properties" afterDir="false" />
+    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="读取数据库表结构">
+      <change afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/FieldInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/TableInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/RunApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/RunApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/utils/PropertiesUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/utils/PropertiesUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/resources/application.yaml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +109,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1683458972176</updated>
-      <workItem from="1683458973214" duration="7501000" />
+      <workItem from="1683458973214" duration="9061000" />
     </task>
     <task id="LOCAL-00001" summary="代码生成器初始化">
       <created>1683460544012</created>
@@ -150,7 +146,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683463974348</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="读取数据库表结构">
+      <created>1683466608374</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683466608374</updated>
+    </task>
+    <task id="LOCAL-00007" summary="读取数据库表结构">
+      <created>1683466702463</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1683466702463</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +173,7 @@
     </ignored-roots>
     <MESSAGE value="代码生成器初始化" />
     <MESSAGE value="初始配置" />
-    <option name="LAST_COMMIT_MESSAGE" value="初始配置" />
+    <MESSAGE value="读取数据库表结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="读取数据库表结构" />
   </component>
 </project>
