@@ -1,10 +1,14 @@
 package com.easyjava.builder;
 
+import com.easyjava.bean.Constants;
+import com.easyjava.bean.TableInfo;
 import com.easyjava.utils.PropertiesUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class BuildTable {
@@ -30,13 +34,23 @@ public class BuildTable {
     public static void getTables(){
         PreparedStatement ps = null;
         ResultSet tableResult = null;
+
+        List<TableInfo> tableInfoList = new ArrayList<TableInfo>();
+
         try {
             ps = conn.prepareStatement(SQL_SHOW_TABLE_STATUS);
             tableResult = ps.executeQuery();
             while (tableResult.next()){
                 String tableName = tableResult.getString("name");
                 String comment = tableResult.getString("comment");
-                logger.info(" {},{}",tableName,comment);
+                TableInfo tableInfo = new TableInfo();
+                tableInfo.setTableName(tableName);
+                String beanName = tableName;
+                if(Constants.IGNORE_TABLE_PREFIX){
+                    beanName = tableName.substring(beanName.indexOf("_")+1);
+                }
+                tableInfo.setBeanName(beanName);
+                logger.info(" {},{},{}",tableName,comment,beanName);
             }
         }catch (Exception e){
             logger.error("读取表失败",e);

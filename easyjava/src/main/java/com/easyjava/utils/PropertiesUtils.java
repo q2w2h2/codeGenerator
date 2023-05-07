@@ -1,5 +1,7 @@
 package com.easyjava.utils;
 
+import com.easyjava.bean.Constants;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
@@ -41,7 +43,12 @@ public class PropertiesUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(getString("db.user"));
+        System.out.println(getString("ignore.table.prefix"));
+        System.out.println(Constants.IGNORE_TABLE_PREFIX);
+        String str = getString("ignore.table.prefix");
+        Boolean b = Boolean.valueOf(str);
+        System.out.println(b);
+        System.out.println(str);
     }
 
  }
