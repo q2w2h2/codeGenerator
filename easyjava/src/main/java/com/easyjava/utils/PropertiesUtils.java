@@ -14,7 +14,7 @@ public class PropertiesUtils {
     static {
         InputStream in = null;
         try {
-            in = PropertiesUtils.class.getClassLoader().getResourceAsStream("application.yaml");
+            in = PropertiesUtils.class.getClassLoader().getResourceAsStream("application.properties");
             props.load(in);
 
             Iterator<Object> iterator = props.keySet().iterator();
@@ -41,7 +41,7 @@ public class PropertiesUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(getString("server.port"));
+        System.out.println(getString("db.user"));
     }
 
  }
