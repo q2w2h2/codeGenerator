@@ -12,7 +12,9 @@ import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class BuildTable {
@@ -62,7 +64,7 @@ public class BuildTable {
 
                 readFieldInfo(tableInfo);
                 getKeyIndexInfo(tableInfo);
-                logger.info("tableInfo:{}",JsonUtils.convertObj2Json(tableInfo));
+                logger.info("tableInfo:{}", JsonUtils.convertObj2Json(tableInfo));
 
                 tableInfoList.add(tableInfo);
             }
@@ -161,13 +163,15 @@ public class BuildTable {
         }
     }
 
-    public static void getKeyIndexInfo(TableInfo tableInfo) {
+    public static void getKeyIndexInfo(TableInfo tableInfo) throws RuntimeException {
         PreparedStatement ps = null;
         ResultSet fieldResult = null;
 
-
-
         try {
+            Map<String, FieldInfo> temp = new HashMap<String, FieldInfo>();
+            for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
+                temp.put(fieldInfo.getFieldName(),fieldInfo);
+            }
             ps = conn.prepareStatement(String.format(SQL_SHOW_TABLE_INDEX, tableInfo.getTableName()));
             fieldResult = ps.executeQuery();
             while (fieldResult.next()) {
@@ -176,15 +180,11 @@ public class BuildTable {
                 String columnName = fieldResult.getString("column_name");
                 if (nonUnique == 1) continue;
                 List<FieldInfo> keyFieldList = tableInfo.getKeyIndexMap().get(keyName);
-                if(null == keyFieldList){
+                if (null == keyFieldList) {
                     keyFieldList = new ArrayList<FieldInfo>();
-                    tableInfo.getKeyIndexMap().put(keyName,keyFieldList);
+                    tableInfo.getKeyIndexMap().put(keyName, keyFieldList);
                 }
-                for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
-                    if (fieldInfo.getFieldName().equals(columnName)){
-                        keyFieldList.add(fieldInfo);
-                    }
-                }
+                keyFieldList.add(temp.get(columnName));
             }
         } catch (Exception e) {
             logger.error("读取索引失败", e);
