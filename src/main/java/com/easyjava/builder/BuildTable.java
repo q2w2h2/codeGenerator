@@ -64,7 +64,6 @@ public class BuildTable {
                 getKeyIndexInfo(tableInfo);
                 logger.info("tableInfo:{}",JsonUtils.convertObj2Json(tableInfo));
 
-                tableInfoList.add(tableInfo);
             }
         } catch (Exception e) {
             logger.error("读取表失败", e);
