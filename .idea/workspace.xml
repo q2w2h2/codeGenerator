@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="优化了获取表索引">
+    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成PO 目前生成文件夹和文件">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildPo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildPo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +65,7 @@
     "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "settings.editor.selected.configurable": "File.Encoding",
     "spring.configuration.checksum": "2b090b54bff99219fb7418cbbf6552ce",
     "vue.rearranger.settings.migration": "true"
   }
@@ -74,6 +76,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.RunApplication">
+    <configuration name="Constants" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.easyjava.bean.Constants" />
+      <module name="easyjava" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.easyjava.bean.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PropertiesUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.easyjava.utils.PropertiesUtils" />
       <module name="easyjava" />
@@ -116,6 +131,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.RunApplication" />
+        <item itemvalue="应用程序.Constants" />
         <item itemvalue="应用程序.StringUtils" />
         <item itemvalue="应用程序.PropertiesUtils" />
       </list>
@@ -130,7 +146,8 @@
       <option name="presentableId" value="Default" />
       <updated>1683458972176</updated>
       <workItem from="1683458973214" duration="10774000" />
-      <workItem from="1683628359942" duration="15240000" />
+      <workItem from="1683628359942" duration="15343000" />
+      <workItem from="1683874106514" duration="5155000" />
     </task>
     <task id="LOCAL-00001" summary="代码生成器初始化">
       <created>1683460544012</created>
@@ -202,7 +219,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683643080816</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="优化了获取表索引">
+      <created>1683644002559</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683644002559</updated>
+    </task>
+    <task id="LOCAL-00012" summary="生成PO 目前生成文件夹和文件">
+      <created>1683877400601</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683877400601</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +261,11 @@
     <MESSAGE value="定义两个bean，用来纪录表格和表格中的字段" />
     <MESSAGE value="读取表结构——读取表基本信息——读取表字段——读取表索引" />
     <MESSAGE value="优化了获取表索引" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化了获取表索引" />
+    <MESSAGE value="生成PO 目前生成文件夹和文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="生成PO 目前生成文件夹和文件" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
