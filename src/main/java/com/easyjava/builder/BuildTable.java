@@ -62,7 +62,8 @@ public class BuildTable {
 
                 readFieldInfo(tableInfo);
                 getKeyIndexInfo(tableInfo);
-                logger.info("tableInfo:{}",JsonUtils.convertObj2Json(tableInfo));
+                tableInfoList.add(tableInfo);
+                logger.info("tableInfo:{}", JsonUtils.convertObj2Json(tableInfo));
 
             }
         } catch (Exception e) {
@@ -165,7 +166,6 @@ public class BuildTable {
         ResultSet fieldResult = null;
 
 
-
         try {
             ps = conn.prepareStatement(String.format(SQL_SHOW_TABLE_INDEX, tableInfo.getTableName()));
             fieldResult = ps.executeQuery();
@@ -175,12 +175,12 @@ public class BuildTable {
                 String columnName = fieldResult.getString("column_name");
                 if (nonUnique == 1) continue;
                 List<FieldInfo> keyFieldList = tableInfo.getKeyIndexMap().get(keyName);
-                if(null == keyFieldList){
+                if (null == keyFieldList) {
                     keyFieldList = new ArrayList<FieldInfo>();
-                    tableInfo.getKeyIndexMap().put(keyName,keyFieldList);
+                    tableInfo.getKeyIndexMap().put(keyName, keyFieldList);
                 }
                 for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
-                    if (fieldInfo.getFieldName().equals(columnName)){
+                    if (fieldInfo.getFieldName().equals(columnName)) {
                         keyFieldList.add(fieldInfo);
                     }
                 }
