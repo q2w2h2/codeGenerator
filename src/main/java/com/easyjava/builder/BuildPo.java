@@ -3,6 +3,8 @@ package com.easyjava.builder;
 import com.easyjava.bean.Constants;
 import com.easyjava.bean.FieldInfo;
 import com.easyjava.bean.TableInfo;
+import com.easyjava.utils.DateUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,11 +36,38 @@ public class BuildPo {
             bw.newLine();
             bw.write("import java.io.Serializable;");
             bw.newLine();
+            if (tableInfo.getHaveDateTime()) {
+                bw.write("import java.math.BigDecimal;");
+                bw.newLine();
+            }
+            if (tableInfo.getHaveDateTime() || tableInfo.getHaveDate()) {
+                bw.write("import java.util.Date;");
+                bw.newLine();
+                bw.write(Constants.BEAN_DATE_FORMAT_CLASS);
+                bw.newLine();
+                bw.write(Constants.BEAN_DATE_UNFORMAT_CLASS);
+                bw.newLine();
+            }
             bw.newLine();
+            bw.newLine();
+            BuildComment.buildClassComment(bw, tableInfo.getComment());
             bw.write("public class " + tableInfo.getBeanName() + " implements Serializable {");
             bw.newLine();
 
             for (FieldInfo field : tableInfo.getFieldList()) {
+                BuildComment.buildFieldComment(bw, field.getComment());
+                if (ArrayUtils.contains(Constants.SQL_DATE_TIME_TYPE, field.getSqlType())) {
+                    bw.write("\t" + String.format(Constants.BEAN_DATE_FORMAT_EXPRESSION,DateUtils.YYYY_MM_DD_HH_MM_SS));
+                    bw.newLine();
+                    bw.write("\t" + String.format(Constants.BEAN_DATE_UNFORMAT_EXPRESSION,DateUtils.YYYY_MM_DD));
+                    bw.newLine();
+                }
+                if (ArrayUtils.contains(Constants.SQL_DATE_TYPE, field.getSqlType())) {
+                    bw.write("\t" + String.format(Constants.BEAN_DATE_FORMAT_EXPRESSION,DateUtils.YYYY_MM_DD));
+                    bw.newLine();
+                    bw.write("\t" + String.format(Constants.BEAN_DATE_UNFORMAT_EXPRESSION,DateUtils.YYYY_MM_DD));
+                    bw.newLine();
+                }
                 bw.write("\tprivate " + field.getJavaType() + " " + field.getPropertyName() + ";");
                 bw.newLine();
             }

@@ -2,6 +2,7 @@ package com.easyjava.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
@@ -14,7 +15,8 @@ public class PropertiesUtils {
         InputStream in = null;
         try {
             in = PropertiesUtils.class.getClassLoader().getResourceAsStream("application.properties");
-            props.load(in);
+            //和编辑器保持一致
+            props.load(new InputStreamReader(in,"gbk"));
 
             for (Object o : props.keySet()) {
                 String key = (String) o;
