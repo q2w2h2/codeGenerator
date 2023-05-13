@@ -3,15 +3,17 @@ package com.easyjava.entity.po;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 /**
  * @Description: 商品信息
 
  * @author: 小阙
- * @date: 2023/08/13
+ * @date: 2023/24/13
  */
 public class ProductInfo implements Serializable {
 	/**
@@ -21,6 +23,7 @@ public class ProductInfo implements Serializable {
 	/**
 	 * 公司id
 	 */
+	@JsonIgnore
 	private String companyId;
 	/**
 	 * 商品编号
@@ -61,5 +64,6 @@ public class ProductInfo implements Serializable {
 	/**
 	 * 状态·
 	 */
+	@JsonIgnore
 	private Integer status;
 }
