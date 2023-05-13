@@ -43,9 +43,21 @@ public class BuildPo {
             if (tableInfo.getHaveDateTime() || tableInfo.getHaveDate()) {
                 bw.write("import java.util.Date;");
                 bw.newLine();
+                bw.newLine();
                 bw.write(Constants.BEAN_DATE_FORMAT_CLASS);
                 bw.newLine();
                 bw.write(Constants.BEAN_DATE_UNFORMAT_CLASS);
+                bw.newLine();
+            }
+            Boolean haveIgnore = false;
+            for (FieldInfo field : tableInfo.getFieldList()) {
+                if (ArrayUtils.contains(Constants.IGNORE_BEAN_TOJSON_FILED.split(","), field.getPropertyName())) {
+                    haveIgnore = true;
+                    break;
+                }
+            }
+            if (haveIgnore){
+                bw.write(Constants.IGNORE_BEAN_TOJSON_CLASS);
                 bw.newLine();
             }
             bw.newLine();
@@ -54,18 +66,23 @@ public class BuildPo {
             bw.write("public class " + tableInfo.getBeanName() + " implements Serializable {");
             bw.newLine();
 
+            //遍历字段生成类的属性
             for (FieldInfo field : tableInfo.getFieldList()) {
                 BuildComment.buildFieldComment(bw, field.getComment());
                 if (ArrayUtils.contains(Constants.SQL_DATE_TIME_TYPE, field.getSqlType())) {
-                    bw.write("\t" + String.format(Constants.BEAN_DATE_FORMAT_EXPRESSION,DateUtils.YYYY_MM_DD_HH_MM_SS));
+                    bw.write("\t" + String.format(Constants.BEAN_DATE_FORMAT_EXPRESSION, DateUtils.YYYY_MM_DD_HH_MM_SS));
                     bw.newLine();
-                    bw.write("\t" + String.format(Constants.BEAN_DATE_UNFORMAT_EXPRESSION,DateUtils.YYYY_MM_DD));
+                    bw.write("\t" + String.format(Constants.BEAN_DATE_UNFORMAT_EXPRESSION, DateUtils.YYYY_MM_DD));
                     bw.newLine();
                 }
                 if (ArrayUtils.contains(Constants.SQL_DATE_TYPE, field.getSqlType())) {
-                    bw.write("\t" + String.format(Constants.BEAN_DATE_FORMAT_EXPRESSION,DateUtils.YYYY_MM_DD));
+                    bw.write("\t" + String.format(Constants.BEAN_DATE_FORMAT_EXPRESSION, DateUtils.YYYY_MM_DD));
                     bw.newLine();
-                    bw.write("\t" + String.format(Constants.BEAN_DATE_UNFORMAT_EXPRESSION,DateUtils.YYYY_MM_DD));
+                    bw.write("\t" + String.format(Constants.BEAN_DATE_UNFORMAT_EXPRESSION, DateUtils.YYYY_MM_DD));
+                    bw.newLine();
+                }
+                if (ArrayUtils.contains(Constants.IGNORE_BEAN_TOJSON_FILED.split(","), field.getPropertyName())) {
+                    bw.write("\t" + Constants.IGNORE_BEAN_TOJSON_EXPRESSION);
                     bw.newLine();
                 }
                 bw.write("\tprivate " + field.getJavaType() + " " + field.getPropertyName() + ";");
