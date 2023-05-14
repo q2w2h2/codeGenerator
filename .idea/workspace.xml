@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成PO 目前生成属性">
+    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成PO 目前生成toString方法 完成生成PO">
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/enums/DateTimePatternEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/utils/DateUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/DateTimePatternEnum.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/DateUtils.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/RunApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/RunApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildPo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildPo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +43,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/easyjava" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2PSmh4ccxUDUEIHhI5e7adZwEfW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -75,13 +86,26 @@
       <recent name="E:\code\workspace-easyjava\easyjava\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.RunApplication">
+  <component name="RunManager" selected="应用程序.ProductInfo">
     <configuration name="Constants" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.easyjava.bean.Constants" />
       <module name="easyjava" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.easyjava.bean.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductInfo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.easyjava.entity.po.ProductInfo" />
+      <module name="easyjava-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.easyjava.entity.po.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -130,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.ProductInfo" />
         <item itemvalue="Spring Boot.RunApplication" />
         <item itemvalue="应用程序.Constants" />
         <item itemvalue="应用程序.StringUtils" />
         <item itemvalue="应用程序.PropertiesUtils" />
-        <item itemvalue="Spring Boot.RunApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -149,7 +173,8 @@
       <workItem from="1683458973214" duration="10774000" />
       <workItem from="1683628359942" duration="15343000" />
       <workItem from="1683874106514" duration="5155000" />
-      <workItem from="1683975915306" duration="8283000" />
+      <workItem from="1683975915306" duration="8430000" />
+      <workItem from="1684025326547" duration="15938000" />
     </task>
     <task id="LOCAL-00001" summary="代码生成器初始化">
       <created>1683460544012</created>
@@ -242,7 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683983486113</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="生成PO 目前生成属性,完善生成属性的注解和导包">
+      <created>1683984339543</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683984339543</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,7 +304,9 @@
     <MESSAGE value="优化了获取表索引" />
     <MESSAGE value="生成PO 目前生成文件夹和文件" />
     <MESSAGE value="生成PO 目前生成属性" />
-    <option name="LAST_COMMIT_MESSAGE" value="生成PO 目前生成属性" />
+    <MESSAGE value="生成PO 目前生成属性,完善生成属性的注解和导包" />
+    <MESSAGE value="生成PO 目前生成toString方法 完成生成PO" />
+    <option name="LAST_COMMIT_MESSAGE" value="生成PO 目前生成toString方法 完成生成PO" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
