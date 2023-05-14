@@ -17,10 +17,14 @@ public class Constants {
     public static String SUFFIX_BEAN_QUERY;
     public static String PATH_JAVA = "java";
     public static String PATH_RESOURCES = "resources";
-    public static String PATH_BASE;
-    public static String PATH_PO;
     public static String PACKAGE_BASE;
     public static String PACKAGE_PO;
+    public static String PACKAGE_UTILS;
+    public static String PACKAGE_ENUMS;
+    public static String PATH_BASE;
+    public static String PATH_PO;
+    public static String PATH_UTILS;
+    public static String PATH_ENUMS;
     public static String IGNORE_BEAN_TOJSON_FILED;
     public static String IGNORE_BEAN_TOJSON_EXPRESSION;
     public static String IGNORE_BEAN_TOJSON_CLASS;
@@ -38,9 +42,13 @@ public class Constants {
 
         PACKAGE_BASE = PropertiesUtils.getString("package.base");
         PACKAGE_PO = PACKAGE_BASE + "." + PropertiesUtils.getString("package.po");
+        PACKAGE_UTILS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.utils");
+        PACKAGE_ENUMS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.enums");
 
         PATH_BASE = PropertiesUtils.getString("path.base");
         PATH_PO = PATH_BASE + "/" + PATH_JAVA + "/" +  PACKAGE_PO.replace('.','/');
+        PATH_UTILS = PATH_BASE + "/" + PATH_JAVA + "/" +  PACKAGE_UTILS.replace('.','/');
+        PATH_ENUMS = PATH_BASE + "/" + PATH_JAVA + "/" +  PACKAGE_ENUMS.replace('.','/');
 
         //需要忽略的属性
         IGNORE_BEAN_TOJSON_FILED = PropertiesUtils.getString("ignore.bean.tojson.filed");
@@ -57,10 +65,8 @@ public class Constants {
     }
 
     public static void main(String[] args) {
-        System.out.println(PATH_PO);
-        System.out.println(PATH_BASE);
-        System.out.println(PACKAGE_BASE);
-        System.out.println(PACKAGE_PO);
+        System.out.println(PACKAGE_UTILS);
+        System.out.println(PACKAGE_ENUMS);
     }
 
 }
