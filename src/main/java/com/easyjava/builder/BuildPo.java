@@ -31,6 +31,19 @@ public class BuildPo {
             outw = new OutputStreamWriter(out, "utf-8");
             bw = new BufferedWriter(outw);
 
+          /*import java.io.Serializable;
+            import java.math.BigDecimal;
+
+            import com.easyjava.enums.DateTimePatternEnum;
+            import com.easyjava.utils.DateUtils;
+
+            import java.util.Date;
+
+            import com.fasterxml.jackson.annotation.JsonFormat;
+            import org.springframework.format.annotation.DateTimeFormat;
+            import com.fasterxml.jackson.annotation.JsonIgnore;
+            */
+
             bw.write("package " + Constants.PACKAGE_PO + ";");
             bw.newLine();
             bw.newLine();
@@ -39,11 +52,13 @@ public class BuildPo {
             if (tableInfo.getHaveDateTime()) {
                 bw.write("import java.math.BigDecimal;");
                 bw.newLine();
+                bw.newLine();
             }
             if (tableInfo.getHaveDateTime() || tableInfo.getHaveDate()) {
-                bw.write("import "+Constants.PACKAGE_ENUMS + ".DateTimePatternEnum;" );
+                bw.write("import " + Constants.PACKAGE_ENUMS + ".DateTimePatternEnum;");
                 bw.newLine();
-                bw.write("import "+Constants.PACKAGE_UTILS + ".DateUtils;");
+                bw.write("import " + Constants.PACKAGE_UTILS + ".DateUtils;");
+                bw.newLine();
                 bw.newLine();
                 bw.write("import java.util.Date;");
                 bw.newLine();
@@ -65,7 +80,6 @@ public class BuildPo {
                 bw.write(Constants.IGNORE_BEAN_TOJSON_CLASS);
                 bw.newLine();
             }
-            bw.newLine();
             bw.newLine();
             //添加类注释
             BuildComment.buildClassComment(bw, tableInfo.getComment());
@@ -94,6 +108,7 @@ public class BuildPo {
                 bw.write("\tprivate " + field.getJavaType() + " " + field.getPropertyName() + ";");
                 bw.newLine();
             }
+            bw.newLine();
             //重写属性get,set方法
             for (FieldInfo field : tableInfo.getFieldList()) {
                 String name = StringUtils.upperFirstLetter(field.getPropertyName());
@@ -118,9 +133,9 @@ public class BuildPo {
             String str;
             for (FieldInfo field : tableInfo.getFieldList()) {
                 String tempName = field.getPropertyName();
-                if (ArrayUtils.contains(Constants.SQL_DATE_TIME_TYPE,field.getSqlType())){
+                if (ArrayUtils.contains(Constants.SQL_DATE_TIME_TYPE, field.getSqlType())) {
                     tempName = "DateUtils.format(" + tempName + ", DateTimePatternEnum.YYYY_MM_DD_HH_MM_SS.getPattern())";
-                } else if (ArrayUtils.contains(Constants.SQL_DATE_TYPE,field.getSqlType())) {
+                } else if (ArrayUtils.contains(Constants.SQL_DATE_TYPE, field.getSqlType())) {
                     tempName = "DateUtils.format(" + tempName + ", DateTimePatternEnum.YYYY_MM_DD.getPattern())";
                 }
                 toString.append(" \" " + field.getComment() + ":\" + (" + field.getPropertyName() + " == null ? \"空 \" : " + tempName + ")");
@@ -132,7 +147,7 @@ public class BuildPo {
             bw.newLine();
             bw.write("\tpublic String toString() {");
             bw.newLine();
-            bw.write("\t\treturn " + str + ";");
+            bw.write("\t\treturn" + str + ";");
             bw.newLine();
             bw.write("\t}");
             bw.newLine();

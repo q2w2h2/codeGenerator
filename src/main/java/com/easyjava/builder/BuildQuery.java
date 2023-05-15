@@ -47,7 +47,7 @@ public class BuildQuery {
                 bw.newLine();
             }
             //添加类注释
-            BuildComment.buildClassComment(bw, tableInfo.getComment());
+            BuildComment.buildClassComment(bw, tableInfo.getComment() + "查询对象");
             bw.write("public class " + fileName + " {");
             bw.newLine();
 
