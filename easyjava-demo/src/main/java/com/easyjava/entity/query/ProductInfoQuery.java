@@ -4,10 +4,9 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * @Description: 商品信息
-
+ * @Description: 商品信息查询对象
  * @author: 小阙
- * @date: 2023/41/15
+ * @date: 2023/09/15
  */
 public class ProductInfoQuery {
 	/**
