@@ -11,10 +11,13 @@ public class BuildBase {
     public static Logger logger = LoggerFactory.getLogger(BuildBase.class);
     public static String HEAD_DATEUTILS = "package " + Constants.PACKAGE_UTILS + ";";
     public static String HEAD_DATETIMEPATTERNENUM = "package " + Constants.PACKAGE_ENUMS + ";";
+    public static String HEAD_MAPPERS = "package " + Constants.PACKAGE_MAPPERS + ";";
+
 
     public static void execute() {
-        build(HEAD_DATETIMEPATTERNENUM,"DateTimePatternEnum",Constants.PATH_ENUMS);
-        build( HEAD_DATEUTILS, "DateUtils", Constants.PATH_UTILS);
+        build(HEAD_DATETIMEPATTERNENUM, "DateTimePatternEnum", Constants.PATH_ENUMS);
+        build(HEAD_DATEUTILS, "DateUtils", Constants.PATH_UTILS);
+        build(HEAD_MAPPERS, "BaseMapper", Constants.PATH_MAPPERS);
     }
 
     public static void build(String head, String fileName, String outPutPath) throws RuntimeException {
@@ -40,7 +43,7 @@ public class BuildBase {
 
 
             String templatePath = "E:/code/workspace-easyjava/easyjava/src/main/resources/template";
-            templatePath = templatePath + "/" +fileName +".txt";
+            templatePath = templatePath + "/" + fileName + ".txt";
 
             in = new FileInputStream(templatePath);
             inr = new InputStreamReader(in, "utf-8");
