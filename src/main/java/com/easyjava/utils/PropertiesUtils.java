@@ -15,8 +15,10 @@ public class PropertiesUtils {
         InputStream in = null;
         try {
             in = PropertiesUtils.class.getClassLoader().getResourceAsStream("application.properties");
-            //和编辑器保持一致
-            props.load(new InputStreamReader(in,"gbk"));
+            //和使用编辑器保持一致
+            if (in != null) {
+                props.load(new InputStreamReader(in,"gbk"));
+            }
 
             for (Object o : props.keySet()) {
                 String key = (String) o;

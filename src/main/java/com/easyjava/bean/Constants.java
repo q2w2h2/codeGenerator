@@ -15,14 +15,19 @@ public class Constants {
     public static String AUTHOR;
     public static Boolean IGNORE_TABLE_PREFIX;
     public static String SUFFIX_BEAN_QUERY;
+    public static String SUFFIX_BEAN_QUERY_FUZZY;
+    public static String SUFFIX_BEAN_QUERY_TIME_START;
+    public static String SUFFIX_BEAN_QUERY_TIME_END;
     public static String PATH_JAVA = "java";
     public static String PATH_RESOURCES = "resources";
     public static String PACKAGE_BASE;
     public static String PACKAGE_PO;
+    public static String PACKAGE_QUERY;
     public static String PACKAGE_UTILS;
     public static String PACKAGE_ENUMS;
     public static String PATH_BASE;
     public static String PATH_PO;
+    public static String PATH_QUERY;
     public static String PATH_UTILS;
     public static String PATH_ENUMS;
     public static String IGNORE_BEAN_TOJSON_FILED;
@@ -39,17 +44,21 @@ public class Constants {
         AUTHOR = PropertiesUtils.getString("author");
         IGNORE_TABLE_PREFIX = Boolean.valueOf(PropertiesUtils.getString("ignore.table.prefix"));
         SUFFIX_BEAN_QUERY = PropertiesUtils.getString("suffix.bean.query");
-
+        SUFFIX_BEAN_QUERY_FUZZY = PropertiesUtils.getString("suffix.bean.query.fuzzy");
+        SUFFIX_BEAN_QUERY_TIME_START = PropertiesUtils.getString("suffix.bean.query.time.start");
+        SUFFIX_BEAN_QUERY_TIME_END = PropertiesUtils.getString("suffix.bean.query.time.end");
+        //包名
         PACKAGE_BASE = PropertiesUtils.getString("package.base");
         PACKAGE_PO = PACKAGE_BASE + "." + PropertiesUtils.getString("package.po");
+        PACKAGE_QUERY = PACKAGE_BASE + "." + PropertiesUtils.getString("package.query");
         PACKAGE_UTILS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.utils");
         PACKAGE_ENUMS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.enums");
-
+        //路径名
         PATH_BASE = PropertiesUtils.getString("path.base");
-        PATH_PO = PATH_BASE + "/" + PATH_JAVA + "/" +  PACKAGE_PO.replace('.','/');
-        PATH_UTILS = PATH_BASE + "/" + PATH_JAVA + "/" +  PACKAGE_UTILS.replace('.','/');
-        PATH_ENUMS = PATH_BASE + "/" + PATH_JAVA + "/" +  PACKAGE_ENUMS.replace('.','/');
-
+        PATH_PO = PATH_BASE + "/" + PATH_JAVA + "/" + PACKAGE_PO.replace('.', '/');
+        PATH_QUERY = PATH_BASE + "/" + PATH_JAVA + "/" + PACKAGE_QUERY.replace('.', '/');
+        PATH_UTILS = PATH_BASE + "/" + PATH_JAVA + "/" + PACKAGE_UTILS.replace('.', '/');
+        PATH_ENUMS = PATH_BASE + "/" + PATH_JAVA + "/" + PACKAGE_ENUMS.replace('.', '/');
         //需要忽略的属性
         IGNORE_BEAN_TOJSON_FILED = PropertiesUtils.getString("ignore.bean.tojson.filed");
         IGNORE_BEAN_TOJSON_EXPRESSION = PropertiesUtils.getString("ignore.bean.tojson.expression");
@@ -60,7 +69,6 @@ public class Constants {
         //日期格式反序列化
         BEAN_DATE_UNFORMAT_EXPRESSION = PropertiesUtils.getString("bean.date.unformat.expression");
         BEAN_DATE_UNFORMAT_CLASS = PropertiesUtils.getString("bean.date.unformat.class");
-
 
     }
 
