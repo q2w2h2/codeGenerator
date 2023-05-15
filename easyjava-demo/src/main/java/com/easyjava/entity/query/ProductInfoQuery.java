@@ -1,15 +1,7 @@
-package com.easyjava.entity.po;
+package com.easyjava.entity.query;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
-import com.easyjava.enums.DateTimePatternEnum;
-import com.easyjava.utils.DateUtils;
 import java.util.Date;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 /**
  * @Description: 商品信息
@@ -17,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @author: 小阙
  * @date: 2023/41/15
  */
-public class ProductInfo implements Serializable {
+public class ProductInfoQuery {
 	/**
 	 * 自增id
 	 */
@@ -25,16 +17,18 @@ public class ProductInfo implements Serializable {
 	/**
 	 * 公司id
 	 */
-	@JsonIgnore
 	private String companyId;
+	private String companyIdFuzzy;
 	/**
 	 * 商品编号
 	 */
 	private String code;
+	private String codeFuzzy;
 	/**
 	 * 商品名称
 	 */
 	private String productName;
+	private String productNameFuzzy;
 	/**
 	 * 价格
 	 */
@@ -47,18 +41,19 @@ public class ProductInfo implements Serializable {
 	 * 颜色类型
 	 */
 	private String colorType;
+	private String colorTypeFuzzy;
 	/**
 	 * 创建时间
 	 */
-	@JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss", timezone = "GMT+8")
-	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private Date createTime;
+	private String createTimeStart;
+	private String createTimeEnd;
 	/**
 	 * 创建日期
 	 */
-	@JsonFormat(pattern = "yyyy-mm-dd", timezone = "GMT+8")
-	@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private Date createData;
+	private String createDataStart;
+	private String createDataEnd;
 	/**
 	 * 库存
 	 */
@@ -66,7 +61,6 @@ public class ProductInfo implements Serializable {
 	/**
 	 * 状态
 	 */
-	@JsonIgnore
 	private Integer status;
 	public Integer getId() {
 		return this.id;
@@ -156,8 +150,68 @@ public class ProductInfo implements Serializable {
 		return this.status = status;
 	}
 
-	@Override
-	public String toString() {
-		return  " 自增id:" + (id == null ? "空 " : id) +  " 公司id:" + (companyId == null ? "空 " : companyId) +  " 商品编号:" + (code == null ? "空 " : code) +  " 商品名称:" + (productName == null ? "空 " : productName) +  " 价格:" + (price == null ? "空 " : price) +  " sku模型:" + (skuType == null ? "空 " : skuType) +  " 颜色类型:" + (colorType == null ? "空 " : colorType) +  " 创建时间:" + (createTime == null ? "空 " : DateUtils.format(createTime, DateTimePatternEnum.YYYY_MM_DD_HH_MM_SS.getPattern())) +  " 创建日期:" + (createData == null ? "空 " : DateUtils.format(createData, DateTimePatternEnum.YYYY_MM_DD.getPattern())) +  " 库存:" + (stock == null ? "空 " : stock) +  " 状态:" + (status == null ? "空 " : status) ;
+	public String getCompanyIdFuzzy() {
+		return this.companyIdFuzzy;
 	}
+
+	public String setCompanyIdFuzzy(String companyIdFuzzy) {
+		return this.companyIdFuzzy = companyIdFuzzy;
+	}
+
+	public String getCodeFuzzy() {
+		return this.codeFuzzy;
+	}
+
+	public String setCodeFuzzy(String codeFuzzy) {
+		return this.codeFuzzy = codeFuzzy;
+	}
+
+	public String getProductNameFuzzy() {
+		return this.productNameFuzzy;
+	}
+
+	public String setProductNameFuzzy(String productNameFuzzy) {
+		return this.productNameFuzzy = productNameFuzzy;
+	}
+
+	public String getColorTypeFuzzy() {
+		return this.colorTypeFuzzy;
+	}
+
+	public String setColorTypeFuzzy(String colorTypeFuzzy) {
+		return this.colorTypeFuzzy = colorTypeFuzzy;
+	}
+
+	public String getCreateTimeStart() {
+		return this.createTimeStart;
+	}
+
+	public String setCreateTimeStart(String createTimeStart) {
+		return this.createTimeStart = createTimeStart;
+	}
+
+	public String getCreateTimeEnd() {
+		return this.createTimeEnd;
+	}
+
+	public String setCreateTimeEnd(String createTimeEnd) {
+		return this.createTimeEnd = createTimeEnd;
+	}
+
+	public String getCreateDataStart() {
+		return this.createDataStart;
+	}
+
+	public String setCreateDataStart(String createDataStart) {
+		return this.createDataStart = createDataStart;
+	}
+
+	public String getCreateDataEnd() {
+		return this.createDataEnd;
+	}
+
+	public String setCreateDataEnd(String createDataEnd) {
+		return this.createDataEnd = createDataEnd;
+	}
+
 }
