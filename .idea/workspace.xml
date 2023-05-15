@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成query 目前完成生成query">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="优化代码生成格式">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/BaseMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/BaseMapper.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/ProductInfoQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/ProductInfoQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildPo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildPo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +177,7 @@
       <workItem from="1683874106514" duration="5155000" />
       <workItem from="1683975915306" duration="8430000" />
       <workItem from="1684025326547" duration="16055000" />
-      <workItem from="1684152999381" duration="6752000" />
+      <workItem from="1684152999381" duration="9399000" />
     </task>
     <task id="LOCAL-00001" summary="代码生成器初始化">
       <created>1683460544012</created>
@@ -288,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684158723126</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="优化代码生成格式">
+      <created>1684159868023</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1684159868023</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,7 +331,8 @@
     <MESSAGE value="生成PO 目前生成属性,完善生成属性的注解和导包" />
     <MESSAGE value="生成PO 目前生成toString方法 完成生成PO" />
     <MESSAGE value="生成query 目前完成生成query" />
-    <option name="LAST_COMMIT_MESSAGE" value="生成query 目前完成生成query" />
+    <MESSAGE value="优化代码生成格式" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化代码生成格式" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
