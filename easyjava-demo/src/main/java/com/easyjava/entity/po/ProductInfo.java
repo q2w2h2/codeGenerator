@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * @Description: 商品信息
  * @author: 小阙
- * @date: 2023/56/15
+ * @date: 2023/05/16
  */
 public class ProductInfo implements Serializable {
 	/**
@@ -50,14 +50,14 @@ public class ProductInfo implements Serializable {
 	/**
 	 * 创建时间
 	 */
-	@JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss", timezone = "GMT+8")
-	@DateTimeFormat(pattern = "yyyy-mm-dd")
+	@JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss", timezone = "GMT+8")
+	@DateTimeFormat(pattern = "YYYY-MM-dd")
 	private Date createTime;
 	/**
 	 * 创建日期
 	 */
-	@JsonFormat(pattern = "yyyy-mm-dd", timezone = "GMT+8")
-	@DateTimeFormat(pattern = "yyyy-mm-dd")
+	@JsonFormat(pattern = "YYYY-MM-dd", timezone = "GMT+8")
+	@DateTimeFormat(pattern = "YYYY-MM-dd")
 	private Date createData;
 	/**
 	 * 库存
