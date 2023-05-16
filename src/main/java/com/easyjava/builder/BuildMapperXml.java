@@ -85,8 +85,7 @@ public class BuildMapperXml {
             //通用查询列
             bw.write("\t<!-- 通用查询列 -->");
             bw.newLine();
-            String base_column_list = "base_column_list";
-            bw.write("\t<sql id=\"" + base_column_list + "\">");
+            bw.write("\t<sql id=\"" + BASE_COLUMN_LIST + "\">");
             bw.newLine();
             StringBuilder columnBuilder = new StringBuilder();
             for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
@@ -101,10 +100,8 @@ public class BuildMapperXml {
             //基础查询条件
             bw.write("\t<!-- 基础查询条件 -->");
             bw.newLine();
-            bw.write("\t<sql id=\"" + BASE_COLUMN_LIST + "\">");
+            bw.write("\t<sql id=\"" + BASE_QUERY_CONDITION + "\">");
             bw.newLine();
-
-
             for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
                 String stringQuery = "";
                 if (ArrayUtils.contains(Constants.SQL_STRING_TYPE, fieldInfo.getSqlType())) {
@@ -121,6 +118,32 @@ public class BuildMapperXml {
             bw.write("\t</sql>");
             bw.newLine();
 
+            //拓展的查询条件
+            bw.write("\t<!-- 拓展的查询条件 -->");
+            bw.newLine();
+            bw.write("\t<sql id=\"" + QUERY_CONDITION + "\">");
+            bw.newLine();
+            for (FieldInfo fieldInfo : tableInfo.getFieldExtendList()) {
+                String andWhere = "";
+                if (ArrayUtils.contains(Constants.SQL_STRING_TYPE, fieldInfo.getSqlType())) {
+                    andWhere = " and " + fieldInfo.getFieldName() + " like count('%', #{query." + fieldInfo.getPropertyName() + "}, '%')";
+                } else if (ArrayUtils.contains(Constants.SQL_DATE_TYPE, fieldInfo.getSqlType()) || ArrayUtils.contains(Constants.SQL_DATE_TIME_TYPE, fieldInfo.getSqlType())) {
+                    if (fieldInfo.getPropertyName().endsWith(Constants.SUFFIX_BEAN_QUERY_TIME_START)){
+                        andWhere = "<![CDATA[ and " + fieldInfo.getFieldName() +" >= str_to_date(#{" + fieldInfo.getPropertyName() + "}, '%Y-%m-%d') ]]>";
+                    } else if (fieldInfo.getPropertyName().endsWith(Constants.SUFFIX_BEAN_QUERY_TIME_END)) {
+                        andWhere = "<![CDATA[ and " + fieldInfo.getFieldName() +" < date_sub(str_to_date(#{query." + fieldInfo.getPropertyName() + "},'%Y-%m-%d'),interval - 1 day) ]]>";
+                    }
+                }
+                bw.write("\t\t<if test=\"query." + fieldInfo.getPropertyName() + " != null and query." + fieldInfo.getPropertyName() + " !=''\">");
+                bw.newLine();
+                bw.write("\t\t\t" + andWhere);
+                bw.newLine();
+                bw.write("\t\t</if>");
+                bw.newLine();
+            }
+            bw.newLine();
+            bw.write("\t</sql>");
+            bw.newLine();
 
             bw.write("</mapper>");
             bw.flush();
