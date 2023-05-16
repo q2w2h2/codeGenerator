@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成mapper 目前 生成baseMapper">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/utils/RunUtils.java" afterDir="false" />
+    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成mapper 目前 生成mapper基本结构 修复日期格式不正确问题,优化一些意思模糊代码的命名">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/ProductInfoQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/ProductInfoQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/BaseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/BaseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/RunApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/RunApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/utils/DateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/utils/DateUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/resources/template/BaseMapper.txt" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/BaseMapper.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +34,7 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/easyjava" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProblemsViewState">
@@ -66,7 +58,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "xiaodong",
     "jdk.selected.JAVA_MODULE": "1.8",
     "last_opened_file_path": "E:/code/workspace-easyjava/easyjava",
     "node.js.detected.package.eslint": "true",
@@ -159,10 +151,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.RunApplication" />
-        <item itemvalue="应用程序.ProductInfo" />
-        <item itemvalue="应用程序.Constants" />
         <item itemvalue="应用程序.StringUtils" />
         <item itemvalue="应用程序.PropertiesUtils" />
+        <item itemvalue="应用程序.ProductInfo" />
+        <item itemvalue="应用程序.Constants" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +172,7 @@
       <workItem from="1683975915306" duration="8430000" />
       <workItem from="1684025326547" duration="16055000" />
       <workItem from="1684152999381" duration="9480000" />
-      <workItem from="1684202724000" duration="1199000" />
+      <workItem from="1684202724000" duration="5463000" />
     </task>
     <task id="LOCAL-00001" summary="代码生成器初始化">
       <created>1683460544012</created>
@@ -308,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684162673782</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="生成mapper 目前 生成mapper基本结构 修复日期格式不正确问题,优化一些意思模糊代码的命名">
+      <created>1684204201312</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1684204201312</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,7 +342,8 @@
     <MESSAGE value="生成query 目前完成生成query" />
     <MESSAGE value="优化代码生成格式" />
     <MESSAGE value="生成mapper 目前 生成baseMapper" />
-    <option name="LAST_COMMIT_MESSAGE" value="生成mapper 目前 生成baseMapper" />
+    <MESSAGE value="生成mapper 目前 生成mapper基本结构 修复日期格式不正确问题,优化一些意思模糊代码的命名" />
+    <option name="LAST_COMMIT_MESSAGE" value="生成mapper 目前 生成mapper基本结构 修复日期格式不正确问题,优化一些意思模糊代码的命名" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

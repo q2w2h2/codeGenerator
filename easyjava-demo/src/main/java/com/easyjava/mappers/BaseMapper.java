@@ -4,7 +4,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-interface BaseMapper<T, P> {
+public interface BaseMapper<T, P> {
     /**
      * insert 插入
      */
