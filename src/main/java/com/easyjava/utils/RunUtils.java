@@ -14,6 +14,7 @@ public class RunUtils {
             BuildPo.execute(tableInfo);
             BuildQuery.execute(tableInfo);
             BuildMapper.execute(tableInfo);
+            BuildMapperXml.execute(tableInfo);
         }
     }
 }

@@ -5,20 +5,50 @@ import java.util.List;
 import java.util.Map;
 
 public class TableInfo {
+    /**
+     * 表名
+     */
     private String tableName;
+    /**
+     * bean名称
+     */
     private String beanName;
+    /**
+     * 参数名称
+     */
     private String beanParamName;
+    /**
+     * 表注释
+     */
     private String comment;
+    /**
+     * 字段信息
+     */
     private List<FieldInfo> fieldList;
-    //唯一索引集合
+    /**
+     * 拓展字段信息
+     */
+    private List<FieldInfo> fieldExtendList;
+    /**
+     * 唯一索引集合
+     * */
     private Map<String, List<FieldInfo>> keyIndexMap = new LinkedHashMap();
 
-    //是否有date类型
+    /**
+     * 是否有date类型
+     * */
     private Boolean haveDate;
-    //是否有时间类型
+    /**
+     * 是否有时间类型
+     * */
     private Boolean haveDateTime;
-    //是否有bigDecimal类型
+    /**
+     * 是否有bigDecimal类型
+     * */
     private Boolean haveBigDecimal;
+
+    public TableInfo() {
+    }
 
     public String getTableName() {
         return tableName;
@@ -58,6 +88,14 @@ public class TableInfo {
 
     public void setFieldList(List<FieldInfo> fieldList) {
         this.fieldList = fieldList;
+    }
+
+    public List<FieldInfo> getFieldExtendList() {
+        return fieldExtendList;
+    }
+
+    public void setFieldExtendList(List<FieldInfo> fieldExtendList) {
+        this.fieldExtendList = fieldExtendList;
     }
 
     public Map<String, List<FieldInfo>> getKeyIndexMap() {

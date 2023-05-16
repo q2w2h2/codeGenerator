@@ -33,6 +33,7 @@ public class Constants {
     public static String PATH_UTILS;
     public static String PATH_ENUMS;
     public static String PATH_MAPPERS;
+    public static String PATH_MAPPERS_XML;
     public static String IGNORE_BEAN_TOJSON_FILED;
     public static String IGNORE_BEAN_TOJSON_EXPRESSION;
     public static String IGNORE_BEAN_TOJSON_CLASS;
@@ -65,6 +66,7 @@ public class Constants {
         PATH_UTILS = PATH_BASE + "/" + PATH_JAVA + "/" + PACKAGE_UTILS.replace('.', '/');
         PATH_ENUMS = PATH_BASE + "/" + PATH_JAVA + "/" + PACKAGE_ENUMS.replace('.', '/');
         PATH_MAPPERS = PATH_BASE + "/" + PATH_JAVA + "/" + PACKAGE_MAPPERS.replace('.', '/');
+        PATH_MAPPERS_XML = PropertiesUtils.getString("path.base") + "/" + PATH_RESOURCES + "/" + PACKAGE_MAPPERS.replace('.', '/');
         //需要忽略的属性
         IGNORE_BEAN_TOJSON_FILED = PropertiesUtils.getString("ignore.bean.tojson.filed");
         IGNORE_BEAN_TOJSON_EXPRESSION = PropertiesUtils.getString("ignore.bean.tojson.expression");
@@ -79,8 +81,7 @@ public class Constants {
     }
 
     public static void main(String[] args) {
-        System.out.println(PACKAGE_UTILS);
-        System.out.println(PACKAGE_ENUMS);
+        System.out.println(PATH_MAPPERS_XML);
     }
 
 }

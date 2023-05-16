@@ -102,6 +102,7 @@ public class BuildTable {
         boolean havaDecimal = false;
 
         List<FieldInfo> fieldInfoList = new ArrayList<FieldInfo>();
+        List<FieldInfo> tableInfoExtendList = new ArrayList<FieldInfo>();
 
         try {
             ps = conn.prepareStatement(String.format(SQL_SHOW_TABLE_FIELDS, tableInfo.getTableName()));
@@ -136,11 +137,45 @@ public class BuildTable {
                 if (ArrayUtils.contains(Constants.SQL_DECIMAL_TYPE, type)) {
                     havaDecimal = true;
                 }
+                if (ArrayUtils.contains(Constants.SQL_DATE_TIME_TYPE, type) || ArrayUtils.contains(Constants.SQL_DATE_TYPE, type)) {
+                    String propertyNameStart, propertyNameEnd;
+                    propertyNameStart = fieldInfo.getPropertyName() + Constants.SUFFIX_BEAN_QUERY_TIME_START;
+                    propertyNameEnd = fieldInfo.getPropertyName() + Constants.SUFFIX_BEAN_QUERY_TIME_END;
+
+
+                    FieldInfo timeStart = new FieldInfo();
+                    timeStart.setJavaType("String");
+                    timeStart.setPropertyName(propertyNameStart);
+                    timeStart.setFieldName(propertyNameStart);
+                    tableInfoExtendList.add(timeStart);
+
+                    FieldInfo timeEnd = new FieldInfo();
+                    timeEnd.setJavaType("String");
+                    timeEnd.setPropertyName(propertyNameEnd);
+                    timeEnd.setFieldName(propertyNameEnd);
+                    tableInfoExtendList.add(timeEnd);
+                }
+
+                if (ArrayUtils.contains(Constants.SQL_STRING_TYPE, type)) {
+                    String fuzzyName;
+                    fuzzyName = fieldInfo.getPropertyName() + Constants.SUFFIX_BEAN_QUERY_FUZZY;
+
+                    FieldInfo fuzzy = new FieldInfo();
+                    fuzzy.setJavaType(fieldInfo.getJavaType());
+                    fuzzy.setPropertyName(fuzzyName);
+                    fuzzy.setFieldName(fuzzyName);
+                    tableInfoExtendList.add(fuzzy);
+                }
+
                 tableInfo.setHaveDate(havaDate);
                 tableInfo.setHaveDateTime(havaDateTime);
                 tableInfo.setHaveBigDecimal(havaDecimal);
             }
+            tableInfo.setHaveDate(havaDate);
+            tableInfo.setHaveDateTime(havaDateTime);
+            tableInfo.setHaveBigDecimal(havaDecimal);
             tableInfo.setFieldList(fieldInfoList);
+            tableInfo.setFieldExtendList(tableInfoExtendList);
         } catch (Exception e) {
             logger.error("读取表失败", e);
         } finally {

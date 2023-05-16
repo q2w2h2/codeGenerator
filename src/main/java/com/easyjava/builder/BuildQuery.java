@@ -51,66 +51,26 @@ public class BuildQuery {
             bw.write("public class " + fileName + " {");
             bw.newLine();
 
-            List<FieldInfo> addField = new ArrayList<FieldInfo>();
             //遍历字段生成类的属性
             for (FieldInfo field : tableInfo.getFieldList()) {
                 BuildComment.buildFieldComment(bw, field.getComment());
                 bw.write("\tprivate " + field.getJavaType() + " " + field.getPropertyName() + ";");
                 bw.newLine();
                 if (ArrayUtils.contains(Constants.SQL_DATE_TIME_TYPE, field.getSqlType()) || ArrayUtils.contains(Constants.SQL_DATE_TYPE, field.getSqlType())) {
-                    String propertyNameStart, propertyNameEnd;
-                    propertyNameStart = field.getPropertyName() + Constants.SUFFIX_BEAN_QUERY_TIME_START;
-                    propertyNameEnd = field.getPropertyName() + Constants.SUFFIX_BEAN_QUERY_TIME_END;
-
                     bw.write("\tprivate String " + field.getPropertyName() + Constants.SUFFIX_BEAN_QUERY_TIME_START + ";");
                     bw.newLine();
                     bw.write("\tprivate String " + field.getPropertyName() + Constants.SUFFIX_BEAN_QUERY_TIME_END + ";");
                     bw.newLine();
-
-                    FieldInfo timeStart = new FieldInfo();
-                    timeStart.setJavaType("String");
-                    timeStart.setPropertyName(propertyNameStart);
-                    addField.add(timeStart);
-
-                    FieldInfo timeEnd = new FieldInfo();
-                    timeEnd.setJavaType("String");
-                    timeEnd.setPropertyName(propertyNameEnd);
-                    addField.add(timeEnd);
                 }
 
                 if (ArrayUtils.contains(Constants.SQL_STRING_TYPE, field.getSqlType())) {
-                    String fuzzyName;
-                    fuzzyName = field.getPropertyName() + Constants.SUFFIX_BEAN_QUERY_FUZZY;
-
                     bw.write("\tprivate " + field.getJavaType() + " " + field.getPropertyName() + Constants.SUFFIX_BEAN_QUERY_FUZZY + ";");
                     bw.newLine();
-
-                    FieldInfo fuzzy = new FieldInfo();
-                    fuzzy.setJavaType(field.getJavaType());
-                    fuzzy.setPropertyName(fuzzyName);
-                    addField.add(fuzzy);
                 }
             }
-            List<FieldInfo> newTableInfo =tableInfo.getFieldList();
-            newTableInfo.addAll(addField);
-            //重写属性get,set方法
-            for (FieldInfo field : newTableInfo) {
-                String name = StringUtils.upperFirstLetter(field.getPropertyName());
-                bw.write("\tpublic " + field.getJavaType() + " get" + name + "() {");
-                bw.newLine();
-                bw.write("\t\treturn this." + field.getPropertyName() + ";");
-                bw.newLine();
-                bw.write("\t}");
-                bw.newLine();
-                bw.newLine();
-                bw.write("\tpublic " + field.getJavaType() + " set" + name + "(" + field.getJavaType() + " " + field.getPropertyName() + ") {");
-                bw.newLine();
-                bw.write("\t\treturn this." + field.getPropertyName() + " = " + field.getPropertyName() + ";");
-                bw.newLine();
-                bw.write("\t}");
-                bw.newLine();
-                bw.newLine();
-            }
+            //生成属性get,set方法
+            buildGetSet(bw, tableInfo.getFieldList());
+            buildGetSet(bw, tableInfo.getFieldExtendList());
             bw.write("}");
             bw.flush();
 
@@ -138,6 +98,26 @@ public class BuildQuery {
                     throw new RuntimeException(e);
                 }
             }
+        }
+    }
+
+    public static void buildGetSet(BufferedWriter bw, List<FieldInfo> fieldInfoList) throws Exception {
+        for (FieldInfo field : fieldInfoList) {
+            String name = StringUtils.upperFirstLetter(field.getPropertyName());
+            bw.write("\tpublic " + field.getJavaType() + " get" + name + "() {");
+            bw.newLine();
+            bw.write("\t\treturn this." + field.getPropertyName() + ";");
+            bw.newLine();
+            bw.write("\t}");
+            bw.newLine();
+            bw.newLine();
+            bw.write("\tpublic " + field.getJavaType() + " set" + name + "(" + field.getJavaType() + " " + field.getPropertyName() + ") {");
+            bw.newLine();
+            bw.write("\t\treturn this." + field.getPropertyName() + " = " + field.getPropertyName() + ";");
+            bw.newLine();
+            bw.write("\t}");
+            bw.newLine();
+            bw.newLine();
         }
     }
 }
