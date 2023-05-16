@@ -18,6 +18,7 @@ public class Constants {
     public static String SUFFIX_BEAN_QUERY_FUZZY;
     public static String SUFFIX_BEAN_QUERY_TIME_START;
     public static String SUFFIX_BEAN_QUERY_TIME_END;
+    public static String SUFFIX_MAPPER;
     public static String PATH_JAVA = "java";
     public static String PATH_RESOURCES = "resources";
     public static String PACKAGE_BASE;
@@ -49,6 +50,7 @@ public class Constants {
         SUFFIX_BEAN_QUERY_FUZZY = PropertiesUtils.getString("suffix.bean.query.fuzzy");
         SUFFIX_BEAN_QUERY_TIME_START = PropertiesUtils.getString("suffix.bean.query.time.start");
         SUFFIX_BEAN_QUERY_TIME_END = PropertiesUtils.getString("suffix.bean.query.time.end");
+        SUFFIX_MAPPER = PropertiesUtils.getString("suffix.mapper");
         //包名
         PACKAGE_BASE = PropertiesUtils.getString("package.base");
         PACKAGE_PO = PACKAGE_BASE + "." + PropertiesUtils.getString("package.po");

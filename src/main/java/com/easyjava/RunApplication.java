@@ -6,6 +6,7 @@ import com.easyjava.builder.BuildBase;
 import com.easyjava.builder.BuildPo;
 import com.easyjava.builder.BuildQuery;
 import com.easyjava.builder.BuildTable;
+import com.easyjava.utils.RunUtils;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.List;
@@ -13,12 +14,6 @@ import java.util.List;
 @SpringBootApplication
 public class RunApplication {
     public static void main(String[] args) {
-        List<TableInfo> tableInfoList = BuildTable.getTables();
-        BuildBase.execute();
-
-        for (TableInfo tableInfo : tableInfoList) {
-            BuildPo.execute(tableInfo);
-            BuildQuery.execute(tableInfo);
-        }
+        RunUtils.run();
     }
 }

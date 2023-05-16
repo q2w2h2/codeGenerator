@@ -23,13 +23,13 @@ public class BuildQuery {
         }
         String fileName = tableInfo.getBeanName() + Constants.SUFFIX_BEAN_QUERY;
 
-        File poFile = new File(folder, fileName + ".java");
+        File poQureyFile = new File(folder, fileName + ".java");
 
         OutputStream out = null;
         OutputStreamWriter outw = null;
         BufferedWriter bw = null;
         try {
-            out = new FileOutputStream(poFile);
+            out = new FileOutputStream(poQureyFile);
             outw = new OutputStreamWriter(out, "utf-8");
             bw = new BufferedWriter(outw);
 
