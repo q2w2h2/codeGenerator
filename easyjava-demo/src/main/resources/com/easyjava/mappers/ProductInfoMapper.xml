@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easyjava.mappers.ProductInfoMapper">
+	<!-- 实体映射 -->
+	<resultMap id="base_result_map" type="com.easyjava.entity.po.ProductInfo">
+
+		<!-- 自增id-->
+		<id column="id" property="id"/>
+		<!-- 公司id-->
+		<result column="company_id" property="companyId"/>
+		<!-- 商品编号-->
+		<result column="code" property="code"/>
+		<!-- 商品名称-->
+		<result column="product_name" property="productName"/>
+		<!-- 价格-->
+		<result column="price" property="price"/>
+		<!-- sku模型-->
+		<result column="sku_type" property="skuType"/>
+		<!-- 颜色类型-->
+		<result column="color_type" property="colorType"/>
+		<!-- 创建时间-->
+		<result column="create_time" property="createTime"/>
+		<!-- 创建日期-->
+		<result column="create_data" property="createData"/>
+		<!-- 库存-->
+		<result column="stock" property="stock"/>
+		<!-- 状态-->
+		<result column="status" property="status"/>
+
+	</resultMap>
+	<!-- 通用查询列 -->
+	<sql id="base_column_list">
+		id,company_id,code,product_name,price,sku_type,color_type,create_time,create_data,stock,status
+	</sql>
+	<!-- 基础查询条件 -->
+	<sql id="base_column_list">
+		<if test="query.id != null">
+			and id = #{query.id}
+		</if>
+		<if test="query.companyId != null and query.companyId != ''">
+			and id = #{query.companyId}
+		</if>
+		<if test="query.code != null and query.code != ''">
+			and id = #{query.code}
+		</if>
+		<if test="query.productName != null and query.productName != ''">
+			and id = #{query.productName}
+		</if>
+		<if test="query.price != null">
+			and id = #{query.price}
+		</if>
+		<if test="query.skuType != null">
+			and id = #{query.skuType}
+		</if>
+		<if test="query.colorType != null and query.colorType != ''">
+			and id = #{query.colorType}
+		</if>
+		<if test="query.createTime != null">
+			and id = #{query.createTime}
+		</if>
+		<if test="query.createData != null">
+			and id = #{query.createData}
+		</if>
+		<if test="query.stock != null">
+			and id = #{query.stock}
+		</if>
+		<if test="query.status != null">
+			and id = #{query.status}
+		</if>
+
+	</sql>
+</mapper>

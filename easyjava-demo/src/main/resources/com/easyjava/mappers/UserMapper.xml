@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easyjava.mappers.UserMapper">
+	<!-- 实体映射 -->
+	<resultMap id="base_result_map" type="com.easyjava.entity.po.User">
+
+		<!-- ID-->
+		<id column="id" property="id"/>
+		<!-- 用户名-->
+		<result column="username" property="username"/>
+		<!-- 密码-->
+		<result column="password" property="password"/>
+		<!-- 邮箱-->
+		<result column="email" property="email"/>
+
+	</resultMap>
+	<!-- 通用查询列 -->
+	<sql id="base_column_list">
+		id,username,password,email
+	</sql>
+	<!-- 基础查询条件 -->
+	<sql id="base_column_list">
+		<if test="query.id != null">
+			and id = #{query.id}
+		</if>
+		<if test="query.username != null and query.username != ''">
+			and id = #{query.username}
+		</if>
+		<if test="query.password != null and query.password != ''">
+			and id = #{query.password}
+		</if>
+		<if test="query.email != null and query.email != ''">
+			and id = #{query.email}
+		</if>
+
+	</sql>
+</mapper>
