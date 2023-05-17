@@ -14,6 +14,7 @@ import java.util.Map;
 public class BuildMapperXml {
     public static final String BASE_COLUMN_LIST = "base_column_list";
     public static final String BASE_QUERY_CONDITION = "base_query_condition";
+    public static final String BASE_QUERY_CONDITION_EXTEND = "base_query_condition_extend";
     public static final String QUERY_CONDITION = "query_condition";
     public static Logger logger = LoggerFactory.getLogger(BuildMapperXml.class);
 
@@ -121,17 +122,17 @@ public class BuildMapperXml {
             //拓展的查询条件
             bw.write("\t<!-- 拓展的查询条件 -->");
             bw.newLine();
-            bw.write("\t<sql id=\"" + QUERY_CONDITION + "\">");
+            bw.write("\t<sql id=\"" + BASE_QUERY_CONDITION_EXTEND + "\">");
             bw.newLine();
             for (FieldInfo fieldInfo : tableInfo.getFieldExtendList()) {
                 String andWhere = "";
                 if (ArrayUtils.contains(Constants.SQL_STRING_TYPE, fieldInfo.getSqlType())) {
                     andWhere = " and " + fieldInfo.getFieldName() + " like count('%', #{query." + fieldInfo.getPropertyName() + "}, '%')";
                 } else if (ArrayUtils.contains(Constants.SQL_DATE_TYPE, fieldInfo.getSqlType()) || ArrayUtils.contains(Constants.SQL_DATE_TIME_TYPE, fieldInfo.getSqlType())) {
-                    if (fieldInfo.getPropertyName().endsWith(Constants.SUFFIX_BEAN_QUERY_TIME_START)){
-                        andWhere = "<![CDATA[ and " + fieldInfo.getFieldName() +" >= str_to_date(#{" + fieldInfo.getPropertyName() + "}, '%Y-%m-%d') ]]>";
+                    if (fieldInfo.getPropertyName().endsWith(Constants.SUFFIX_BEAN_QUERY_TIME_START)) {
+                        andWhere = "<![CDATA[ and " + fieldInfo.getFieldName() + " >= str_to_date(#{" + fieldInfo.getPropertyName() + "}, '%Y-%m-%d') ]]>";
                     } else if (fieldInfo.getPropertyName().endsWith(Constants.SUFFIX_BEAN_QUERY_TIME_END)) {
-                        andWhere = "<![CDATA[ and " + fieldInfo.getFieldName() +" < date_sub(str_to_date(#{query." + fieldInfo.getPropertyName() + "},'%Y-%m-%d'),interval - 1 day) ]]>";
+                        andWhere = "<![CDATA[ and " + fieldInfo.getFieldName() + " < date_sub(str_to_date(#{query." + fieldInfo.getPropertyName() + "},'%Y-%m-%d'),interval - 1 day) ]]>";
                     }
                 }
                 bw.write("\t\t<if test=\"query." + fieldInfo.getPropertyName() + " != null and query." + fieldInfo.getPropertyName() + " !=''\">");
@@ -144,6 +145,24 @@ public class BuildMapperXml {
             bw.newLine();
             bw.write("\t</sql>");
             bw.newLine();
+            bw.newLine();
+
+            //通用查询条件
+            bw.write("\t<!-- 通用查询条件 -->");
+            bw.newLine();
+            bw.write("\t<sql id=\"" + QUERY_CONDITION + "\">");
+            bw.newLine();
+            bw.write("\t\t<where>");
+            bw.newLine();
+            bw.write("\t\t\t<include refid=\"" + BASE_QUERY_CONDITION + "\"/>");
+            bw.newLine();
+            bw.write("\t\t\t<include refid=\"" + BASE_QUERY_CONDITION_EXTEND + "\"/>");
+            bw.newLine();
+            bw.write("\t\t</where>");
+            bw.newLine();
+            bw.write("\t</sql>");
+            bw.newLine();
+
 
             bw.write("</mapper>");
             bw.flush();
