@@ -18,9 +18,10 @@ public class BuildMapperXml {
     public static final String BASE_QUERY_CONDITION = "base_query_condition";
     public static final String BASE_QUERY_CONDITION_EXTEND = "base_query_condition_extend";
     public static final String QUERY_CONDITION = "query_condition";
-    public static Logger logger = LoggerFactory.getLogger(BuildMapperXml.class);
 
     public static void execute(TableInfo tableInfo) {
+        //可以定义一些常用的复用
+        String PO_BEAN_NAME = Constants.PACKAGE_PO + "." + tableInfo.getBeanName();
         //创建文件夹
         File folder = new File(Constants.PATH_MAPPERS_XML);
         if (!folder.exists()) {
@@ -54,7 +55,7 @@ public class BuildMapperXml {
             //索引
             bw.write("\t<!-- 实体映射 -->");
             bw.newLine();
-            bw.write("\t<resultMap id=\"base_result_map\" type=\"" + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + "\">");
+            bw.write("\t<resultMap id=\"base_result_map\" type=\"" + PO_BEAN_NAME + "\">");
             bw.newLine();
             bw.newLine();
 
@@ -196,7 +197,7 @@ public class BuildMapperXml {
             //插入单条记录
             bw.write("\t<!-- 添加 插入 （匹配有值的字段） -->");
             bw.newLine();
-            bw.write("\t<insert id=\"insect\" parameterType=\"" + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + "\">");
+            bw.write("\t<insert id=\"insect\" parameterType=\"" + PO_BEAN_NAME + "\">");
             bw.newLine();
 
             FieldInfo autoIncrementField = null;
@@ -250,7 +251,7 @@ public class BuildMapperXml {
             //插入或更新单条记录
             bw.write("\t<!-- 添加或修改 插入或更新 （匹配有值的字段） -->");
             bw.newLine();
-            bw.write("\t<insert id=\"insectOrUpdate\" parameterType=\"" + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + "\">");
+            bw.write("\t<insert id=\"insectOrUpdate\" parameterType=\"" + PO_BEAN_NAME + "\">");
             bw.newLine();
             bw.write("\t\tINSERT INTO " + tableInfo.getTableName());
             bw.newLine();
@@ -313,7 +314,7 @@ public class BuildMapperXml {
             //批量插入
             bw.write("\t<!-- 添加 批量插入 -->");
             bw.newLine();
-            bw.write("\t<insert id=\"insertBatch\" parameterType=\"" + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + "\">");
+            bw.write("\t<insert id=\"insertBatch\" parameterType=\"" + PO_BEAN_NAME + "\">");
             bw.newLine();
             StringBuffer insertFiledBuffer = new StringBuffer();
             StringBuffer insertPropertyBuffer = new StringBuffer();
@@ -341,7 +342,7 @@ public class BuildMapperXml {
             //批量插入或更新
             bw.write("\t<!-- 添加或修改 批量插入或更新 -->");
             bw.newLine();
-            bw.write("\t<insert id=\"insertOrUpdateBatch\" parameterType=\"" + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + "\">");
+            bw.write("\t<insert id=\"insertOrUpdateBatch\" parameterType=\"" + PO_BEAN_NAME + "\">");
             bw.newLine();
             StringBuffer insertOrUpdateFiledBuffer = new StringBuffer();
             StringBuffer insertOrUpdatePropertyBuffer = new StringBuffer();
@@ -404,7 +405,7 @@ public class BuildMapperXml {
                 //根据主键更新
                 bw.write("\t<!-- 根据" + methodName + "更新 -->");
                 bw.newLine();
-                bw.write("\t<update id=\"updateBy" + methodName + "\" parameterType=\"" + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + "\">");
+                bw.write("\t<update id=\"updateBy" + methodName + "\" parameterType=\"" + PO_BEAN_NAME + "\">");
                 bw.newLine();
                 bw.write("\t\tupdate " + tableInfo.getTableName());
                 bw.newLine();
@@ -470,4 +471,5 @@ public class BuildMapperXml {
             }
         }
     }
+    public static Logger logger = LoggerFactory.getLogger(BuildMapperXml.class);
 }
