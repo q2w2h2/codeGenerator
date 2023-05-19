@@ -401,6 +401,32 @@ public class BuildMapperXml {
                 bw.newLine();
                 bw.newLine();
 
+                //根据主键更新
+                bw.write("\t<!-- 根据" + methodName + "更新 -->");
+                bw.newLine();
+                bw.write("\t<update id=\"updateBy" + methodName + "\" parameterType=\"" + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + "\">");
+                bw.newLine();
+                bw.write("\t\tupdate from " + tableInfo.getTableName());
+                bw.newLine();
+                bw.write("\t\t<set>");
+                bw.newLine();
+                for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
+                    bw.write("\t\t\t<if test=\"bean." + fieldInfo.getFieldName() + "!=null\">");
+                    bw.newLine();
+                    bw.write("\t\t\t\t" + fieldInfo.getFieldName() + " = #{bean." + fieldInfo.getPropertyName() + "}");
+                    bw.newLine();
+
+                    bw.write("\t\t\t</if>");
+                    bw.newLine();
+                }
+                bw.write("\t\t</set>");
+                bw.newLine();
+                bw.write("\t\twhere " + paramNames);
+                bw.newLine();
+                bw.write("\t</update>");
+                bw.newLine();
+                bw.newLine();
+
                 //根据主键删除
                 bw.write("\t<!-- 根据" + methodName + "删除 -->");
                 bw.newLine();
