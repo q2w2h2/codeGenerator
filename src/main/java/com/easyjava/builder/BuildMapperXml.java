@@ -328,9 +328,9 @@ public class BuildMapperXml {
             String insertPropertyBufferStr = insertPropertyBuffer.substring(0, insertPropertyBuffer.lastIndexOf(","));
             bw.write("\t\tINSERT INTO " + tableInfo.getTableName() + "(" + insertFieldBufferStr + ")values");
             bw.newLine();
-            bw.write("\t\t<foreach collection=\"list\" item=\"item\" separator=\",\" open=\"(\" close=\")\">");
+            bw.write("\t\t<foreach collection=\"list\" item=\"item\" separator=\",\">");
             bw.newLine();
-            bw.write("\t\t\t" + insertPropertyBufferStr);
+            bw.write("\t\t\t(" + insertPropertyBufferStr + ")");
             bw.newLine();
             bw.write("\t\t</foreach>");
             bw.newLine();
@@ -356,9 +356,9 @@ public class BuildMapperXml {
             String insertOrUpdatePropertyBufferStr = insertOrUpdatePropertyBuffer.substring(0, insertOrUpdatePropertyBuffer.lastIndexOf(","));
             bw.write("\t\tINSERT INTO " + tableInfo.getTableName() + "(" + insertOrUpdateFieldBufferStr + ")values");
             bw.newLine();
-            bw.write("\t\t<foreach collection=\"list\" item=\"item\" separator=\",\" open=\"(\" close=\")\">");
+            bw.write("\t\t<foreach collection=\"list\" item=\"item\" separator=\",\">");
             bw.newLine();
-            bw.write("\t\t\t" + insertOrUpdatePropertyBufferStr);
+            bw.write("\t\t\t(" + insertOrUpdatePropertyBufferStr + ")");
             bw.newLine();
             bw.write("\t\t</foreach>");
             bw.newLine();
@@ -406,12 +406,12 @@ public class BuildMapperXml {
                 bw.newLine();
                 bw.write("\t<update id=\"updateBy" + methodName + "\" parameterType=\"" + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + "\">");
                 bw.newLine();
-                bw.write("\t\tupdate from " + tableInfo.getTableName());
+                bw.write("\t\tupdate " + tableInfo.getTableName());
                 bw.newLine();
                 bw.write("\t\t<set>");
                 bw.newLine();
                 for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
-                    bw.write("\t\t\t<if test=\"bean." + fieldInfo.getFieldName() + "!=null\">");
+                    bw.write("\t\t\t<if test=\"bean." + fieldInfo.getPropertyName() + "!=null\">");
                     bw.newLine();
                     bw.write("\t\t\t\t" + fieldInfo.getFieldName() + " = #{bean." + fieldInfo.getPropertyName() + "}");
                     bw.newLine();
