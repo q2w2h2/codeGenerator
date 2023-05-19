@@ -67,4 +67,40 @@
 	<select id="selectCount" resultMap="java.lang.Long">
 		SELECT count(1) FROM user <include refid="query_condition"/>
 	</select>
+	<!-- 插入 （匹配有值的字段） -->
+	<insert id="insect" parameterType="com.easyjava.entity.po.User">
+		<selectKey keyProperty="bean.id" resultType="Integer" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="bean.id != null">
+				id,
+			</if>
+			<if test="bean.username != null">
+				username,
+			</if>
+			<if test="bean.password != null">
+				password,
+			</if>
+			<if test="bean.email != null">
+				email,
+			</if>
+
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="bean.id != null">
+				#{bean.id},
+			</if>
+			<if test="bean.username != null">
+				#{bean.username},
+			</if>
+			<if test="bean.password != null">
+				#{bean.password},
+			</if>
+			<if test="bean.email != null">
+				#{bean.email},
+			</if>
+
+		</trim>
+	</insert>
 </mapper>

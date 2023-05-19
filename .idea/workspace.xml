@@ -4,33 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成mapper 目前 生成xml 拓展的查询条件 删除DateUtils中多余代码">
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/BaseParam.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/BaseQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/SimplePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/enums/PageSize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/BaseQuery.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/PageSize.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/SimplePage.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成mapper 目前 生成xml 通用查询条件 查询列表 查询数量 删除DateUtils中多余代码 添加生成基础模板BaseQuery.txt PageSize.txt SimplePage.txt 注释BuildTable、BuildPo的测试logger.info 给BuildQuery添加BaseQuery继承 BuildBase中的build方法第一个参数由String类型改为List&lt;String&gt;类型以方便使用">
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/RunApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava-demo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/ProductInfoQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/ProductInfoQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/UserQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/UserQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/ProductInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/ProductInfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/utils/DateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/utils/DateUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/BaseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/BaseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/resources/application.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/ProductInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/ProductInfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava.iml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/FieldInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/FieldInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/TableInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/TableInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildMapperXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildMapperXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildPo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildPo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildQuery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/resources/template/DateUtils.txt" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/DateUtils.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/resources/template/BaseMapper.txt" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/BaseMapper.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +69,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "xiaodong",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "E:/code/workspace-easyjava/easyjava",
+    "last_opened_file_path": "E:/code/workspace-easyjava/easyjava-demo/src/main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -91,14 +78,21 @@
     "project.structure.last.edited": "Facet",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "File.Encoding",
+    "settings.editor.selected.configurable": "nele.options",
     "spring.configuration.checksum": "2b090b54bff99219fb7418cbbf6552ce",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\code\workspace-easyjava\easyjava-demo\src\main" />
       <recent name="E:\code\workspace-easyjava\easyjava\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\code\workspace-easyjava\easyjava-demo\src\main\resources" />
+      <recent name="E:\code\workspace-easyjava\easyjava-demo\src\main\java\com\easyjava" />
+      <recent name="E:\code\workspace-easyjava\easyjava-demo\src\main\java\com\easyjava\entity\query" />
+      <recent name="E:\code\workspace-easyjava\easyjava-demo\src\main\java\com\easyjava\utils" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.easyjava.builder" />
@@ -111,32 +105,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.easyjava.bean.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProductInfo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.easyjava.entity.po.ProductInfo" />
-      <module name="easyjava-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.easyjava.entity.po.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PropertiesUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.easyjava.utils.PropertiesUtils" />
-      <module name="easyjava" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.easyjava.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -175,8 +143,6 @@
         <item itemvalue="Spring Boot.RunApplication" />
         <item itemvalue="应用程序.Constants" />
         <item itemvalue="应用程序.StringUtils" />
-        <item itemvalue="应用程序.PropertiesUtils" />
-        <item itemvalue="应用程序.ProductInfo" />
       </list>
     </recent_temporary>
   </component>
@@ -198,7 +164,7 @@
       <workItem from="1684228370781" duration="13543000" />
       <workItem from="1684333050882" duration="611000" />
       <workItem from="1684469818815" duration="7687000" />
-      <workItem from="1684478761273" duration="939000" />
+      <workItem from="1684478761273" duration="10367000" />
     </task>
     <task id="LOCAL-00001" summary="代码生成器初始化">
       <created>1683460544012</created>
@@ -368,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684248626984</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="生成mapper 目前 生成xml 通用查询条件 查询列表 查询数量 删除DateUtils中多余代码 添加生成基础模板BaseQuery.txt PageSize.txt SimplePage.txt 注释BuildTable、BuildPo的测试logger.info 给BuildQuery添加BaseQuery继承 BuildBase中的build方法第一个参数由String类型改为List&lt;String&gt;类型以方便使用">
+      <created>1684480197178</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1684480197178</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,7 +382,8 @@
     <MESSAGE value="支线-添加BuildTable的注解" />
     <MESSAGE value="删除DateUtils中多余代码" />
     <MESSAGE value="生成mapper 目前 生成xml 拓展的查询条件 删除DateUtils中多余代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="生成mapper 目前 生成xml 拓展的查询条件 删除DateUtils中多余代码" />
+    <MESSAGE value="生成mapper 目前 生成xml 通用查询条件 查询列表 查询数量 删除DateUtils中多余代码 添加生成基础模板BaseQuery.txt PageSize.txt SimplePage.txt 注释BuildTable、BuildPo的测试logger.info 给BuildQuery添加BaseQuery继承 BuildBase中的build方法第一个参数由String类型改为List&lt;String&gt;类型以方便使用" />
+    <option name="LAST_COMMIT_MESSAGE" value="生成mapper 目前 生成xml 通用查询条件 查询列表 查询数量 删除DateUtils中多余代码 添加生成基础模板BaseQuery.txt PageSize.txt SimplePage.txt 注释BuildTable、BuildPo的测试logger.info 给BuildQuery添加BaseQuery继承 BuildBase中的build方法第一个参数由String类型改为List&lt;String&gt;类型以方便使用" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
