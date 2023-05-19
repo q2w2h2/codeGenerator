@@ -67,7 +67,7 @@ public class BuildMapperXml {
             }
 
             for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
-                bw.write("\t\t<!-- " + fieldInfo.getComment() + "-->");
+                bw.write("\t\t<!-- " + fieldInfo.getComment() + " -->");
                 bw.newLine();
                 String key = "";
                 if (idField != null && fieldInfo.getPropertyName().equals(idField.getPropertyName())) {
@@ -161,6 +161,30 @@ public class BuildMapperXml {
             bw.write("\t\t</where>");
             bw.newLine();
             bw.write("\t</sql>");
+            bw.newLine();
+
+            //查询列表
+            bw.write("\t<!-- 查询列表 -->");
+            bw.newLine();
+            bw.write("\t<select id=\"selectList\" resultMap=\"base_result_map\">");
+            bw.newLine();
+            bw.write("\t\tSELECT <include refid=\"" + BASE_COLUMN_LIST + "\"/> FROM " + tableInfo.getTableName() + " <include refid=\"" + QUERY_CONDITION + "\"/>");
+            bw.newLine();
+            bw.write("\t\t<if test=\"query.orderBy!=null\">order by ${query.orderBy}</if>");
+            bw.newLine();
+            bw.write("\t\t<if test=\"query.simplePage!=null\">limit #{query.simplePage.start},#{query.simplePage.end}</if>");
+            bw.newLine();
+            bw.write("\t</select>");
+            bw.newLine();
+
+            //查询数量
+            bw.write("\t<!-- 查询数量 -->");
+            bw.newLine();
+            bw.write("\t<select id=\"selectCount\" resultMap=\"java.lang.Long\">");
+            bw.newLine();
+            bw.write("\t\tSELECT count(1) FROM " + tableInfo.getTableName() + " <include refid=\"" + QUERY_CONDITION + "\"/>");
+            bw.newLine();
+            bw.write("\t</select>");
             bw.newLine();
 
 

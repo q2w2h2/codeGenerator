@@ -74,7 +74,7 @@ public class BuildTable {
                 //读每张表的索引信息
                 getKeyIndexInfo(tableInfo);
                 tableInfoList.add(tableInfo);
-                logger.info("tableInfo:{}", JsonUtils.convertObj2Json(tableInfo));
+                //logger.info("tableInfo:{}", JsonUtils.convertObj2Json(tableInfo));
 
             }
         } catch (Exception e) {

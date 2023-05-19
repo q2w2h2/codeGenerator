@@ -48,7 +48,7 @@ public class BuildQuery {
             }
             //添加类注释
             BuildComment.buildClassComment(bw, tableInfo.getComment() + "查询对象");
-            bw.write("public class " + fileName + " {");
+            bw.write("public class " + fileName + " extends BaseQuery {");
             bw.newLine();
 
             //遍历字段生成类的属性

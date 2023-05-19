@@ -5,22 +5,55 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class BuildBase {
     public static Logger logger = LoggerFactory.getLogger(BuildBase.class);
-    public static String HEAD_DATEUTILS = "package " + Constants.PACKAGE_UTILS + ";";
-    public static String HEAD_DATETIMEPATTERNENUM = "package " + Constants.PACKAGE_ENUMS + ";";
-    public static String HEAD_MAPPERS = "package " + Constants.PACKAGE_MAPPERS + ";";
-
+    public static String PACKAGE_UTILS = "package " + Constants.PACKAGE_UTILS + ";";
+    public static String PACKAGE_ENUMS = "package " + Constants.PACKAGE_ENUMS + ";";
+    public static String PACKAGE_MAPPERS = "package " + Constants.PACKAGE_MAPPERS + ";";
+    public static String PACKAGE_QUERY = "package " + Constants.PACKAGE_QUERY + ";";
 
     public static void execute() {
-        build(HEAD_DATETIMEPATTERNENUM, "DateTimePatternEnum", Constants.PATH_ENUMS);
-        build(HEAD_DATEUTILS, "DateUtils", Constants.PATH_UTILS);
-        build(HEAD_MAPPERS, "BaseMapper", Constants.PATH_MAPPERS);
+        List<String> headerInfoList = new ArrayList<String>();
+
+         //生成date枚举
+        headerInfoList.add(PACKAGE_ENUMS);
+        build(headerInfoList, "DateTimePatternEnum", Constants.PATH_ENUMS);
+        headerInfoList.clear();
+
+        //生成date工具
+        headerInfoList.add(PACKAGE_UTILS);
+        build(headerInfoList, "DateUtils", Constants.PATH_UTILS);
+        headerInfoList.clear();
+
+        //生成baseMapper
+        headerInfoList.add(PACKAGE_MAPPERS);
+        build(headerInfoList, "BaseMapper", Constants.PATH_MAPPERS);
+        headerInfoList.clear();
+
+        //生成pageSize枚举
+        headerInfoList.add(PACKAGE_ENUMS);
+        build(headerInfoList, "PageSize", Constants.PATH_ENUMS);
+        headerInfoList.clear();
+
+        //生成simplePage
+        headerInfoList.add(PACKAGE_QUERY);
+        //这个类还需要导包一下PageSize
+        headerInfoList.add("import " + Constants.PACKAGE_ENUMS +".PageSize"+";");
+        build(headerInfoList, "SimplePage", Constants.PATH_QUERY);
+        headerInfoList.clear();
+
+        //生成baseQuery
+        headerInfoList.add(PACKAGE_QUERY);
+        build(headerInfoList, "BaseQuery", Constants.PATH_QUERY);
+        headerInfoList.clear();
+
     }
 
-    public static void build(String head, String fileName, String outPutPath) throws RuntimeException {
+    public static void build(List<String> headerInfoList, String fileName, String outPutPath) throws RuntimeException {
         File folder = new File(outPutPath);
         if (!folder.exists()) {
             folder.mkdirs();
@@ -35,7 +68,6 @@ public class BuildBase {
         InputStream in = null;
         InputStreamReader inr = null;
         BufferedReader br = null;
-
         try {
             out = new FileOutputStream(javaFile);
             outw = new OutputStreamWriter(out, "utf-8");
@@ -44,14 +76,16 @@ public class BuildBase {
 
             String templatePath = "E:/code/workspace-easyjava/easyjava/src/main/resources/template";
             templatePath = templatePath + "/" + fileName + ".txt";
-
+            //String templatePath = BuildBase.class.getClassLoader().getResource("/template/" + fileName + ".txt").getPath();
             in = new FileInputStream(templatePath);
             inr = new InputStreamReader(in, "utf-8");
             br = new BufferedReader(inr);
 
-            bw.write(head);
-            bw.newLine();
-            bw.newLine();
+            for (String head : headerInfoList) {
+                bw.write(head);
+                bw.newLine();
+                bw.newLine();
+            }
 
             String line;
             while ((line = br.readLine()) != null) {

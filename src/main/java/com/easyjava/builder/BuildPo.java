@@ -142,7 +142,7 @@ public class BuildPo {
                 toString.append(" + ");
             }
             str = toString.substring(0, toString.lastIndexOf("+"));
-            logger.info("tostring:{}", str);
+            //logger.info("tostring:{}", str);
             bw.write("\t@Override");
             bw.newLine();
             bw.write("\tpublic String toString() {");
