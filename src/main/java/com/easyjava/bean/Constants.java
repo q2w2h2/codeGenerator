@@ -27,6 +27,8 @@ public class Constants {
     public static String PACKAGE_UTILS;
     public static String PACKAGE_ENUMS;
     public static String PACKAGE_MAPPERS;
+    public static String PACKAGE_SERVICE;
+    public static String PACKAGE_SERVICE_IMPL;
     public static String PATH_BASE;
     public static String PATH_PO;
     public static String PATH_QUERY;
@@ -34,6 +36,8 @@ public class Constants {
     public static String PATH_ENUMS;
     public static String PATH_MAPPERS;
     public static String PATH_MAPPERS_XML;
+    public static String PATH_SERVICE;
+    public static String PATH_SERVICE_IMPL;
     public static String IGNORE_BEAN_TOJSON_FILED;
     public static String IGNORE_BEAN_TOJSON_EXPRESSION;
     public static String IGNORE_BEAN_TOJSON_CLASS;
@@ -59,6 +63,8 @@ public class Constants {
         PACKAGE_UTILS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.utils");
         PACKAGE_ENUMS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.enums");
         PACKAGE_MAPPERS = PACKAGE_BASE + "." + PropertiesUtils.getString("package.mappers");
+        PACKAGE_SERVICE = PACKAGE_BASE + "." + PropertiesUtils.getString("package.service");
+        PACKAGE_SERVICE_IMPL = PACKAGE_BASE + "." + PropertiesUtils.getString("package.service.impl");
         //路径名
         PATH_BASE = PropertiesUtils.getString("path.base");
         PATH_PO = PATH_BASE + "/" + PATH_JAVA + "/" + PACKAGE_PO.replace('.', '/');
@@ -67,6 +73,8 @@ public class Constants {
         PATH_ENUMS = PATH_BASE + "/" + PATH_JAVA + "/" + PACKAGE_ENUMS.replace('.', '/');
         PATH_MAPPERS = PATH_BASE + "/" + PATH_JAVA + "/" + PACKAGE_MAPPERS.replace('.', '/');
         PATH_MAPPERS_XML = PropertiesUtils.getString("path.base") + "/" + PATH_RESOURCES + "/" + PACKAGE_MAPPERS.replace('.', '/');
+        PATH_SERVICE = PATH_BASE + "/" + PATH_JAVA + "/" + PACKAGE_SERVICE.replace('.', '/');
+        PATH_SERVICE_IMPL = PATH_BASE + "/" + PATH_JAVA + "/" + PACKAGE_SERVICE_IMPL.replace('.', '/');
         //需要忽略的属性
         IGNORE_BEAN_TOJSON_FILED = PropertiesUtils.getString("ignore.bean.tojson.filed");
         IGNORE_BEAN_TOJSON_EXPRESSION = PropertiesUtils.getString("ignore.bean.tojson.expression");
