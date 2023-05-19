@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成mapper 目前 生成xml 根据主键查询更新删除">
+    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成mapper 目前 增加复用">
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/ProductInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/impl/ProductInfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/ProductInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/ProductInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildMapperXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildMapperXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/utils/RunUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/utils/RunUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +40,7 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/easyjava" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProblemsViewState">
@@ -58,7 +64,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "xiaodong",
     "jdk.selected.JAVA_MODULE": "1.8",
     "last_opened_file_path": "E:/code/workspace-easyjava/easyjava-demo/src/main",
     "node.js.detected.package.eslint": "true",
@@ -155,7 +161,7 @@
       <workItem from="1684228370781" duration="13543000" />
       <workItem from="1684333050882" duration="611000" />
       <workItem from="1684469818815" duration="7687000" />
-      <workItem from="1684478761273" duration="22595000" />
+      <workItem from="1684478761273" duration="24669000" />
     </task>
     <task id="LOCAL-00001" summary="代码生成器初始化">
       <created>1683460544012</created>
@@ -360,7 +366,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684503233730</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="生成mapper 目前 修改BuildMapperXml的几处代码错误">
+      <created>1684504284392</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1684504284392</updated>
+    </task>
+    <task id="LOCAL-00031" summary="生成mapper 目前 增加复用">
+      <created>1684504919929</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1684504919929</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,7 +402,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/easyjava" />
     </ignored-roots>
-    <MESSAGE value="代码生成器初始化" />
     <MESSAGE value="初始配置" />
     <MESSAGE value="读取数据库表结构" />
     <MESSAGE value="定义两个bean，用来纪录表格和表格中的字段" />
@@ -406,7 +425,9 @@
     <MESSAGE value="生成mapper 目前 生成xml 插入或更新单条记录(记录不改变主键)" />
     <MESSAGE value="生成mapper 目前 生成xml 批量插入 批量插入或更新 根据主键查询更新删除(完成根据主键查询和根据主键删除)" />
     <MESSAGE value="生成mapper 目前 生成xml 根据主键查询更新删除" />
-    <option name="LAST_COMMIT_MESSAGE" value="生成mapper 目前 生成xml 根据主键查询更新删除" />
+    <MESSAGE value="生成mapper 目前 修改BuildMapperXml的几处代码错误" />
+    <MESSAGE value="生成mapper 目前 增加复用" />
+    <option name="LAST_COMMIT_MESSAGE" value="生成mapper 目前 增加复用" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
