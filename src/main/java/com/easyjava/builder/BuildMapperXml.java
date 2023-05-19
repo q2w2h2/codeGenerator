@@ -3,6 +3,7 @@ package com.easyjava.builder;
 import com.easyjava.bean.Constants;
 import com.easyjava.bean.FieldInfo;
 import com.easyjava.bean.TableInfo;
+import com.easyjava.utils.StringUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,6 +49,8 @@ public class BuildMapperXml {
             bw.newLine();
             bw.write("<mapper namespace=\"" + Constants.PACKAGE_MAPPERS + "." + fileName + "\">");
             bw.newLine();
+            bw.newLine();
+
             //索引
             bw.write("\t<!-- 实体映射 -->");
             bw.newLine();
@@ -79,9 +82,8 @@ public class BuildMapperXml {
                 bw.write("\t\t<" + key + " column=\"" + fieldInfo.getFieldName() + "\" property=\"" + fieldInfo.getPropertyName() + "\"/>");
                 bw.newLine();
             }
-
-            bw.newLine();
             bw.write("\t</resultMap>");
+            bw.newLine();
             bw.newLine();
 
             //通用查询列
@@ -97,6 +99,7 @@ public class BuildMapperXml {
             bw.write("\t\t" + columnBuilderStr);
             bw.newLine();
             bw.write("\t</sql>");
+            bw.newLine();
             bw.newLine();
 
             //基础查询条件
@@ -116,8 +119,8 @@ public class BuildMapperXml {
                 bw.write("\t\t</if>");
                 bw.newLine();
             }
-            bw.newLine();
             bw.write("\t</sql>");
+            bw.newLine();
             bw.newLine();
 
             //拓展的查询条件
@@ -143,7 +146,6 @@ public class BuildMapperXml {
                 bw.write("\t\t</if>");
                 bw.newLine();
             }
-            bw.newLine();
             bw.write("\t</sql>");
             bw.newLine();
             bw.newLine();
@@ -163,6 +165,7 @@ public class BuildMapperXml {
             bw.newLine();
             bw.write("\t</sql>");
             bw.newLine();
+            bw.newLine();
 
             //查询列表
             bw.write("\t<!-- 查询列表 -->");
@@ -177,6 +180,7 @@ public class BuildMapperXml {
             bw.newLine();
             bw.write("\t</select>");
             bw.newLine();
+            bw.newLine();
 
             //查询数量
             bw.write("\t<!-- 查询数量 -->");
@@ -187,9 +191,10 @@ public class BuildMapperXml {
             bw.newLine();
             bw.write("\t</select>");
             bw.newLine();
+            bw.newLine();
 
             //插入单条记录
-            bw.write("\t<!-- 插入 （匹配有值的字段） -->");
+            bw.write("\t<!-- 添加 插入 （匹配有值的字段） -->");
             bw.newLine();
             bw.write("\t<insert id=\"insect\" parameterType=\"" + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + "\">");
             bw.newLine();
@@ -222,7 +227,6 @@ public class BuildMapperXml {
                 bw.write("\t\t\t</if>");
                 bw.newLine();
             }
-            bw.newLine();
             bw.write("\t\t</trim>");
             bw.newLine();
 
@@ -236,15 +240,15 @@ public class BuildMapperXml {
                 bw.write("\t\t\t</if>");
                 bw.newLine();
             }
-            bw.newLine();
             bw.write("\t\t</trim>");
             bw.newLine();
 
             bw.write("\t</insert>");
             bw.newLine();
+            bw.newLine();
 
             //插入或更新单条记录
-            bw.write("\t<!-- 插入或更新 （匹配有值的字段） -->");
+            bw.write("\t<!-- 添加或修改 插入或更新 （匹配有值的字段） -->");
             bw.newLine();
             bw.write("\t<insert id=\"insectOrUpdate\" parameterType=\"" + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + "\">");
             bw.newLine();
@@ -260,7 +264,7 @@ public class BuildMapperXml {
                 bw.write("\t\t\t</if>");
                 bw.newLine();
             }
-            bw.newLine();
+
             bw.write("\t\t</trim>");
             bw.newLine();
 
@@ -274,7 +278,6 @@ public class BuildMapperXml {
                 bw.write("\t\t\t</if>");
                 bw.newLine();
             }
-            bw.newLine();
             bw.write("\t\t</trim>");
             bw.newLine();
             bw.write("\t\ton DUPLICATE key update");
@@ -305,6 +308,111 @@ public class BuildMapperXml {
             bw.newLine();
             bw.write("\t</insert>");
             bw.newLine();
+            bw.newLine();
+
+            //批量插入
+            bw.write("\t<!-- 添加 批量插入 -->");
+            bw.newLine();
+            bw.write("\t<insert id=\"insertBatch\" parameterType=\"" + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + "\">");
+            bw.newLine();
+            StringBuffer insertFiledBuffer = new StringBuffer();
+            StringBuffer insertPropertyBuffer = new StringBuffer();
+            for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
+                if (fieldInfo.getAutoIncrement()) {
+                    continue;
+                }
+                insertFiledBuffer.append(fieldInfo.getPropertyName()).append(",");
+                insertPropertyBuffer.append("#{item." + fieldInfo.getPropertyName() + "}").append(",");
+            }
+            String insertFieldBufferStr = insertFiledBuffer.substring(0, insertFiledBuffer.lastIndexOf(","));
+            String insertPropertyBufferStr = insertPropertyBuffer.substring(0, insertPropertyBuffer.lastIndexOf(","));
+            bw.write("\t\tINSERT INTO " + tableInfo.getTableName() + "(" + insertFieldBufferStr + ")values");
+            bw.newLine();
+            bw.write("\t\t<foreach collection=\"list\" item=\"item\" separator=\",\" open=\"(\" close=\")\">");
+            bw.newLine();
+            bw.write("\t\t\t" + insertPropertyBufferStr);
+            bw.newLine();
+            bw.write("\t\t</foreach>");
+            bw.newLine();
+            bw.write("\t</insert>");
+            bw.newLine();
+            bw.newLine();
+
+            //批量插入或更新
+            bw.write("\t<!-- 添加或修改 批量插入或更新 -->");
+            bw.newLine();
+            bw.write("\t<insert id=\"insertOrUpdateBatch\" parameterType=\"" + Constants.PACKAGE_PO + "." + tableInfo.getBeanName() + "\">");
+            bw.newLine();
+            StringBuffer insertOrUpdateFiledBuffer = new StringBuffer();
+            StringBuffer insertOrUpdatePropertyBuffer = new StringBuffer();
+            for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
+                if (fieldInfo.getAutoIncrement()) {
+                    continue;
+                }
+                insertOrUpdatePropertyBuffer.append("#{item." + fieldInfo.getPropertyName() + "}").append(",");
+                insertOrUpdateFiledBuffer.append(fieldInfo.getPropertyName()).append(",");
+            }
+            String insertOrUpdateFieldBufferStr = insertOrUpdateFiledBuffer.substring(0, insertOrUpdateFiledBuffer.lastIndexOf(","));
+            String insertOrUpdatePropertyBufferStr = insertOrUpdatePropertyBuffer.substring(0, insertOrUpdatePropertyBuffer.lastIndexOf(","));
+            bw.write("\t\tINSERT INTO " + tableInfo.getTableName() + "(" + insertOrUpdateFieldBufferStr + ")values");
+            bw.newLine();
+            bw.write("\t\t<foreach collection=\"list\" item=\"item\" separator=\",\" open=\"(\" close=\")\">");
+            bw.newLine();
+            bw.write("\t\t\t" + insertOrUpdatePropertyBufferStr);
+            bw.newLine();
+            bw.write("\t\t</foreach>");
+            bw.newLine();
+            bw.write("\t\ton DUPLICATE key update");
+            StringBuffer insertBatchUpdateBuffer = new StringBuffer();
+            for (FieldInfo fieldInfo : tableInfo.getFieldList()) {
+                insertBatchUpdateBuffer.append(fieldInfo.getFieldName() + " = VALUES(" + fieldInfo.getFieldName() + "),");
+            }
+            String insertBatchUpdateBufferStr = insertBatchUpdateBuffer.substring(0, insertBatchUpdateBuffer.lastIndexOf(","));
+            bw.write(" " + insertBatchUpdateBufferStr);
+            bw.newLine();
+            bw.write("\t</insert>");
+            bw.newLine();
+            bw.newLine();
+
+            //根据主键查询更新删除
+            for (Map.Entry<String, List<FieldInfo>> entry : keyIndexMap.entrySet()) {
+                List<FieldInfo> keyFieldInfoList = entry.getValue();
+
+                int index = 0;
+                StringBuilder methodName = new StringBuilder();
+                StringBuffer paramNames = new StringBuffer();
+                for (FieldInfo fieldInfo : keyFieldInfoList) {
+                    index++;
+                    methodName.append(StringUtils.upperFirstLetter(fieldInfo.getPropertyName()));
+                    paramNames.append(fieldInfo.getFieldName() + "=#{" + fieldInfo.getPropertyName() + "}");
+                    if (index < keyFieldInfoList.size()) {
+                        methodName.append("And");
+                        paramNames.append(" and ");
+                    }
+                }
+                //根据主键查询
+                bw.write("\t<!-- 根据" + methodName + "查询 -->");
+                bw.newLine();
+                bw.write("\t<select id=\"selectBy" + methodName + "\" resultMap=\"base_result_map\">");
+                bw.newLine();
+                bw.write("\t\tselect <include refid=\"" + BASE_COLUMN_LIST + "\"/> from " + tableInfo.getTableName() + " where " + paramNames);
+                bw.newLine();
+                bw.write("\t</select>");
+                bw.newLine();
+                bw.newLine();
+
+                //根据主键删除
+                bw.write("\t<!-- 根据" + methodName + "删除 -->");
+                bw.newLine();
+                bw.write("\t<delete id=\"deleteBy" + methodName + "\">");
+                bw.newLine();
+                bw.write("\t\tdelete from " + tableInfo.getTableName() + " where " + paramNames);
+                bw.newLine();
+                bw.write("\t</delete>");
+                bw.newLine();
+                bw.newLine();
+
+            }
 
             //-----------------
             bw.write("</mapper>");
