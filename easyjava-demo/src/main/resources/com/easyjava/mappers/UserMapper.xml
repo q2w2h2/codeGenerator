@@ -3,6 +3,7 @@
 		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.easyjava.mappers.UserMapper">
+
 	<!-- 实体映射 -->
 	<resultMap id="base_result_map" type="com.easyjava.entity.po.User">
 
@@ -14,12 +15,13 @@
 		<result column="password" property="password"/>
 		<!-- 邮箱 -->
 		<result column="email" property="email"/>
-
 	</resultMap>
+
 	<!-- 通用查询列 -->
 	<sql id="base_column_list">
 		id,username,password,email
 	</sql>
+
 	<!-- 基础查询条件 -->
 	<sql id="base_query_condition">
 		<if test="query.id != null">
@@ -34,8 +36,8 @@
 		<if test="query.email != null and query.email != ''">
 			and id = #{query.email}
 		</if>
-
 	</sql>
+
 	<!-- 拓展的查询条件 -->
 	<sql id="base_query_condition_extend">
 		<if test="query.usernameFuzzy != null and query.usernameFuzzy !=''">
@@ -47,7 +49,6 @@
 		<if test="query.emailFuzzy != null and query.emailFuzzy !=''">
 			 and email like count('%', #{query.emailFuzzy}, '%')
 		</if>
-
 	</sql>
 
 	<!-- 通用查询条件 -->
@@ -57,17 +58,20 @@
 			<include refid="base_query_condition_extend"/>
 		</where>
 	</sql>
+
 	<!-- 查询列表 -->
 	<select id="selectList" resultMap="base_result_map">
 		SELECT <include refid="base_column_list"/> FROM user <include refid="query_condition"/>
 		<if test="query.orderBy!=null">order by ${query.orderBy}</if>
 		<if test="query.simplePage!=null">limit #{query.simplePage.start},#{query.simplePage.end}</if>
 	</select>
+
 	<!-- 查询数量 -->
 	<select id="selectCount" resultMap="java.lang.Long">
 		SELECT count(1) FROM user <include refid="query_condition"/>
 	</select>
-	<!-- 插入 （匹配有值的字段） -->
+
+	<!-- 添加 插入 （匹配有值的字段） -->
 	<insert id="insect" parameterType="com.easyjava.entity.po.User">
 		<selectKey keyProperty="bean.id" resultType="Integer" order="AFTER">
 			SELECT LAST_INSERT_ID()
@@ -86,7 +90,6 @@
 			<if test="bean.email != null">
 				email,
 			</if>
-
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="bean.id != null">
@@ -101,10 +104,10 @@
 			<if test="bean.email != null">
 				#{bean.email},
 			</if>
-
 		</trim>
 	</insert>
-	<!-- 插入或更新 （匹配有值的字段） -->
+
+	<!-- 添加或修改 插入或更新 （匹配有值的字段） -->
 	<insert id="insectOrUpdate" parameterType="com.easyjava.entity.po.User">
 		INSERT INTO user
 		<trim prefix="(" suffix=")" suffixOverrides=",">
@@ -120,7 +123,6 @@
 			<if test="bean.email != null">
 				email,
 			</if>
-
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="bean.id != null">
@@ -135,7 +137,6 @@
 			<if test="bean.email != null">
 				#{bean.email},
 			</if>
-
 		</trim>
 		on DUPLICATE key update
 		<trim prefix="" suffix="" suffixOverrides=",">
@@ -150,4 +151,32 @@
 			</if>
 		</trim>
 	</insert>
+
+	<!-- 添加 批量插入 -->
+	<insert id="insertBatch" parameterType="com.easyjava.entity.po.User">
+		INSERT INTO user(username,password,email)values
+		<foreach collection="list" item="item" separator="," open="(" close=")">
+			#{item.username},#{item.password},#{item.email}
+		</foreach>
+	</insert>
+
+	<!-- 添加或修改 批量插入或更新 -->
+	<insert id="insertOrUpdateBatch" parameterType="com.easyjava.entity.po.User">
+		INSERT INTO user(username,password,email)values
+		<foreach collection="list" item="item" separator="," open="(" close=")">
+			#{item.username},#{item.password},#{item.email}
+		</foreach>
+		on DUPLICATE key update id = VALUES(id),username = VALUES(username),password = VALUES(password),email = VALUES(email)
+	</insert>
+
+	<!-- 根据Id查询 -->
+	<select id="selectById" resultMap="base_result_map">
+		select <include refid="base_column_list"/> from user where id=#{id}
+	</select>
+
+	<!-- 根据Id删除 -->
+	<delete id="deleteById">
+		delete from user where id=#{id}
+	</delete>
+
 </mapper>

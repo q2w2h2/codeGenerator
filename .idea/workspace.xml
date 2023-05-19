@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成mapper 目前 生成xml 插入单条记录">
+    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成mapper 目前 生成xml 插入或更新单条记录(记录不改变主键)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/ProductInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/ProductInfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/UserMapper.xml" afterDir="false" />
@@ -34,7 +34,7 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/easyjava" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProblemsViewState">
@@ -58,7 +58,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "xiaodong",
     "jdk.selected.JAVA_MODULE": "1.8",
     "last_opened_file_path": "E:/code/workspace-easyjava/easyjava-demo/src/main",
     "node.js.detected.package.eslint": "true",
@@ -155,7 +155,7 @@
       <workItem from="1684228370781" duration="13543000" />
       <workItem from="1684333050882" duration="611000" />
       <workItem from="1684469818815" duration="7687000" />
-      <workItem from="1684478761273" duration="13030000" />
+      <workItem from="1684478761273" duration="20234000" />
     </task>
     <task id="LOCAL-00001" summary="代码生成器初始化">
       <created>1683460544012</created>
@@ -339,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684490439849</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="生成mapper 目前 生成xml 插入或更新单条记录(记录不改变主键)">
+      <created>1684492829086</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1684492829086</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,7 +389,8 @@
     <MESSAGE value="生成mapper 目前 生成xml 拓展的查询条件 删除DateUtils中多余代码" />
     <MESSAGE value="生成mapper 目前 生成xml 通用查询条件 查询列表 查询数量 删除DateUtils中多余代码 添加生成基础模板BaseQuery.txt PageSize.txt SimplePage.txt 注释BuildTable、BuildPo的测试logger.info 给BuildQuery添加BaseQuery继承 BuildBase中的build方法第一个参数由String类型改为List&lt;String&gt;类型以方便使用" />
     <MESSAGE value="生成mapper 目前 生成xml 插入单条记录" />
-    <option name="LAST_COMMIT_MESSAGE" value="生成mapper 目前 生成xml 插入单条记录" />
+    <MESSAGE value="生成mapper 目前 生成xml 插入或更新单条记录(记录不改变主键)" />
+    <option name="LAST_COMMIT_MESSAGE" value="生成mapper 目前 生成xml 插入或更新单条记录(记录不改变主键)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

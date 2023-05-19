@@ -3,6 +3,7 @@
 		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.easyjava.mappers.ProductInfoMapper">
+
 	<!-- 实体映射 -->
 	<resultMap id="base_result_map" type="com.easyjava.entity.po.ProductInfo">
 
@@ -28,12 +29,13 @@
 		<result column="stock" property="stock"/>
 		<!-- 状态 -->
 		<result column="status" property="status"/>
-
 	</resultMap>
+
 	<!-- 通用查询列 -->
 	<sql id="base_column_list">
 		id,company_id,code,product_name,price,sku_type,color_type,create_time,create_data,stock,status
 	</sql>
+
 	<!-- 基础查询条件 -->
 	<sql id="base_query_condition">
 		<if test="query.id != null">
@@ -69,8 +71,8 @@
 		<if test="query.status != null">
 			and id = #{query.status}
 		</if>
-
 	</sql>
+
 	<!-- 拓展的查询条件 -->
 	<sql id="base_query_condition_extend">
 		<if test="query.companyIdFuzzy != null and query.companyIdFuzzy !=''">
@@ -97,7 +99,6 @@
 		<if test="query.createDataEnd != null and query.createDataEnd !=''">
 			<![CDATA[ and create_data < date_sub(str_to_date(#{query.createDataEnd},'%Y-%m-%d'),interval - 1 day) ]]>
 		</if>
-
 	</sql>
 
 	<!-- 通用查询条件 -->
@@ -107,17 +108,20 @@
 			<include refid="base_query_condition_extend"/>
 		</where>
 	</sql>
+
 	<!-- 查询列表 -->
 	<select id="selectList" resultMap="base_result_map">
 		SELECT <include refid="base_column_list"/> FROM tb_product_info <include refid="query_condition"/>
 		<if test="query.orderBy!=null">order by ${query.orderBy}</if>
 		<if test="query.simplePage!=null">limit #{query.simplePage.start},#{query.simplePage.end}</if>
 	</select>
+
 	<!-- 查询数量 -->
 	<select id="selectCount" resultMap="java.lang.Long">
 		SELECT count(1) FROM tb_product_info <include refid="query_condition"/>
 	</select>
-	<!-- 插入 （匹配有值的字段） -->
+
+	<!-- 添加 插入 （匹配有值的字段） -->
 	<insert id="insect" parameterType="com.easyjava.entity.po.ProductInfo">
 		<selectKey keyProperty="bean.id" resultType="Integer" order="AFTER">
 			SELECT LAST_INSERT_ID()
@@ -157,7 +161,6 @@
 			<if test="bean.status != null">
 				status,
 			</if>
-
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="bean.id != null">
@@ -193,10 +196,10 @@
 			<if test="bean.status != null">
 				#{bean.status},
 			</if>
-
 		</trim>
 	</insert>
-	<!-- 插入或更新 （匹配有值的字段） -->
+
+	<!-- 添加或修改 插入或更新 （匹配有值的字段） -->
 	<insert id="insectOrUpdate" parameterType="com.easyjava.entity.po.ProductInfo">
 		INSERT INTO tb_product_info
 		<trim prefix="(" suffix=")" suffixOverrides=",">
@@ -233,7 +236,6 @@
 			<if test="bean.status != null">
 				status,
 			</if>
-
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="bean.id != null">
@@ -269,7 +271,6 @@
 			<if test="bean.status != null">
 				#{bean.status},
 			</if>
-
 		</trim>
 		on DUPLICATE key update
 		<trim prefix="" suffix="" suffixOverrides=",">
@@ -296,4 +297,52 @@
 			</if>
 		</trim>
 	</insert>
+
+	<!-- 添加 批量插入 -->
+	<insert id="insertBatch" parameterType="com.easyjava.entity.po.ProductInfo">
+		INSERT INTO tb_product_info(companyId,code,productName,price,skuType,colorType,createTime,createData,stock,status)values
+		<foreach collection="list" item="item" separator="," open="(" close=")">
+			#{item.companyId},#{item.code},#{item.productName},#{item.price},#{item.skuType},#{item.colorType},#{item.createTime},#{item.createData},#{item.stock},#{item.status}
+		</foreach>
+	</insert>
+
+	<!-- 添加或修改 批量插入或更新 -->
+	<insert id="insertOrUpdateBatch" parameterType="com.easyjava.entity.po.ProductInfo">
+		INSERT INTO tb_product_info(companyId,code,productName,price,skuType,colorType,createTime,createData,stock,status)values
+		<foreach collection="list" item="item" separator="," open="(" close=")">
+			#{item.companyId},#{item.code},#{item.productName},#{item.price},#{item.skuType},#{item.colorType},#{item.createTime},#{item.createData},#{item.stock},#{item.status}
+		</foreach>
+		on DUPLICATE key update id = VALUES(id),company_id = VALUES(company_id),code = VALUES(code),product_name = VALUES(product_name),price = VALUES(price),sku_type = VALUES(sku_type),color_type = VALUES(color_type),create_time = VALUES(create_time),create_data = VALUES(create_data),stock = VALUES(stock),status = VALUES(status)
+	</insert>
+
+	<!-- 根据Id查询 -->
+	<select id="selectById" resultMap="base_result_map">
+		select <include refid="base_column_list"/> from tb_product_info where id=#{id}
+	</select>
+
+	<!-- 根据Id删除 -->
+	<delete id="deleteById">
+		delete from tb_product_info where id=#{id}
+	</delete>
+
+	<!-- 根据Code查询 -->
+	<select id="selectByCode" resultMap="base_result_map">
+		select <include refid="base_column_list"/> from tb_product_info where code=#{code}
+	</select>
+
+	<!-- 根据Code删除 -->
+	<delete id="deleteByCode">
+		delete from tb_product_info where code=#{code}
+	</delete>
+
+	<!-- 根据SkuTypeAndColorType查询 -->
+	<select id="selectBySkuTypeAndColorType" resultMap="base_result_map">
+		select <include refid="base_column_list"/> from tb_product_info where sku_type=#{skuType} and color_type=#{colorType}
+	</select>
+
+	<!-- 根据SkuTypeAndColorType删除 -->
+	<delete id="deleteBySkuTypeAndColorType">
+		delete from tb_product_info where sku_type=#{skuType} and color_type=#{colorType}
+	</delete>
+
 </mapper>
