@@ -19,7 +19,7 @@ public class BuildBase {
     public static void execute() {
         List<String> headerInfoList = new ArrayList<String>();
 
-         //生成date枚举
+        //生成date枚举
         headerInfoList.add(PACKAGE_ENUMS);
         build(headerInfoList, "DateTimePatternEnum", Constants.PATH_ENUMS);
         headerInfoList.clear();
@@ -42,7 +42,7 @@ public class BuildBase {
         //生成simplePage
         headerInfoList.add(PACKAGE_QUERY);
         //这个类还需要导包一下PageSize
-        headerInfoList.add("import " + Constants.PACKAGE_ENUMS +".PageSize"+";");
+        headerInfoList.add("import " + Constants.PACKAGE_ENUMS + ".PageSize" + ";");
         build(headerInfoList, "SimplePage", Constants.PATH_QUERY);
         headerInfoList.clear();
 
@@ -53,12 +53,15 @@ public class BuildBase {
 
     }
 
+    /**
+     * build方法,传入参数[String列表] ：表示头部要先加入的内容(package、import等) [String类型的文件名称] [String类型的输出路径]
+     */
     public static void build(List<String> headerInfoList, String fileName, String outPutPath) throws RuntimeException {
         File folder = new File(outPutPath);
         if (!folder.exists()) {
             folder.mkdirs();
         }
-
+        //java文件名包括.java后缀
         File javaFile = new File(outPutPath, fileName + ".java");
 
         OutputStream out = null;
@@ -73,10 +76,10 @@ public class BuildBase {
             outw = new OutputStreamWriter(out, "utf-8");
             bw = new BufferedWriter(outw);
 
-
+            //这里使用另一种getClassLoader写法获取不到值,百度了半天没有解决
             String templatePath = "E:/code/workspace-easyjava/easyjava/src/main/resources/template";
             templatePath = templatePath + "/" + fileName + ".txt";
-            //String templatePath = BuildBase.class.getClassLoader().getResource("/template/" + fileName + ".txt").getPath();
+            //String templatePath = BuildBase.class.getClassLoader().getResource("template/" + fileName + ".txt").getPath();
             in = new FileInputStream(templatePath);
             inr = new InputStreamReader(in, "utf-8");
             br = new BufferedReader(inr);

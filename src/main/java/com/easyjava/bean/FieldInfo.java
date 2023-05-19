@@ -1,7 +1,9 @@
 package com.easyjava.bean;
 
 public class FieldInfo {
+    //字段名
     private String fieldName;
+    //属性名
     private String propertyName;
     //sql类型
     private String sqlType;
