@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成mapper 目前 生成xml 批量插入 批量插入或更新 根据主键查询更新删除(完成根据主键查询和根据主键删除)">
+    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成mapper 目前 生成xml 根据主键查询更新删除">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/ProductInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/ProductInfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/UserMapper.xml" afterDir="false" />
@@ -34,7 +34,7 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/easyjava" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProblemsViewState">
@@ -58,7 +58,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "xiaodong",
+    "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "1.8",
     "last_opened_file_path": "E:/code/workspace-easyjava/easyjava-demo/src/main",
     "node.js.detected.package.eslint": "true",
@@ -155,7 +155,7 @@
       <workItem from="1684228370781" duration="13543000" />
       <workItem from="1684333050882" duration="611000" />
       <workItem from="1684469818815" duration="7687000" />
-      <workItem from="1684478761273" duration="21566000" />
+      <workItem from="1684478761273" duration="22595000" />
     </task>
     <task id="LOCAL-00001" summary="代码生成器初始化">
       <created>1683460544012</created>
@@ -353,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684501924679</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="生成mapper 目前 生成xml 根据主键查询更新删除">
+      <created>1684503233730</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1684503233730</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +405,8 @@
     <MESSAGE value="生成mapper 目前 生成xml 插入单条记录" />
     <MESSAGE value="生成mapper 目前 生成xml 插入或更新单条记录(记录不改变主键)" />
     <MESSAGE value="生成mapper 目前 生成xml 批量插入 批量插入或更新 根据主键查询更新删除(完成根据主键查询和根据主键删除)" />
-    <option name="LAST_COMMIT_MESSAGE" value="生成mapper 目前 生成xml 批量插入 批量插入或更新 根据主键查询更新删除(完成根据主键查询和根据主键删除)" />
+    <MESSAGE value="生成mapper 目前 生成xml 根据主键查询更新删除" />
+    <option name="LAST_COMMIT_MESSAGE" value="生成mapper 目前 生成xml 根据主键查询更新删除" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

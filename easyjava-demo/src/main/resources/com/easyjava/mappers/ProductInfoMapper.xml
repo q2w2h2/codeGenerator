@@ -301,16 +301,16 @@
 	<!-- 添加 批量插入 -->
 	<insert id="insertBatch" parameterType="com.easyjava.entity.po.ProductInfo">
 		INSERT INTO tb_product_info(companyId,code,productName,price,skuType,colorType,createTime,createData,stock,status)values
-		<foreach collection="list" item="item" separator="," open="(" close=")">
-			#{item.companyId},#{item.code},#{item.productName},#{item.price},#{item.skuType},#{item.colorType},#{item.createTime},#{item.createData},#{item.stock},#{item.status}
+		<foreach collection="list" item="item" separator=",">
+			(#{item.companyId},#{item.code},#{item.productName},#{item.price},#{item.skuType},#{item.colorType},#{item.createTime},#{item.createData},#{item.stock},#{item.status})
 		</foreach>
 	</insert>
 
 	<!-- 添加或修改 批量插入或更新 -->
 	<insert id="insertOrUpdateBatch" parameterType="com.easyjava.entity.po.ProductInfo">
 		INSERT INTO tb_product_info(companyId,code,productName,price,skuType,colorType,createTime,createData,stock,status)values
-		<foreach collection="list" item="item" separator="," open="(" close=")">
-			#{item.companyId},#{item.code},#{item.productName},#{item.price},#{item.skuType},#{item.colorType},#{item.createTime},#{item.createData},#{item.stock},#{item.status}
+		<foreach collection="list" item="item" separator=",">
+			(#{item.companyId},#{item.code},#{item.productName},#{item.price},#{item.skuType},#{item.colorType},#{item.createTime},#{item.createData},#{item.stock},#{item.status})
 		</foreach>
 		on DUPLICATE key update id = VALUES(id),company_id = VALUES(company_id),code = VALUES(code),product_name = VALUES(product_name),price = VALUES(price),sku_type = VALUES(sku_type),color_type = VALUES(color_type),create_time = VALUES(create_time),create_data = VALUES(create_data),stock = VALUES(stock),status = VALUES(status)
 	</insert>
@@ -322,33 +322,33 @@
 
 	<!-- 根据Id更新 -->
 	<update id="updateById" parameterType="com.easyjava.entity.po.ProductInfo">
-		update from tb_product_info
+		update tb_product_info
 		<set>
 			<if test="bean.id!=null">
 				id = #{bean.id}
 			</if>
-			<if test="bean.company_id!=null">
+			<if test="bean.companyId!=null">
 				company_id = #{bean.companyId}
 			</if>
 			<if test="bean.code!=null">
 				code = #{bean.code}
 			</if>
-			<if test="bean.product_name!=null">
+			<if test="bean.productName!=null">
 				product_name = #{bean.productName}
 			</if>
 			<if test="bean.price!=null">
 				price = #{bean.price}
 			</if>
-			<if test="bean.sku_type!=null">
+			<if test="bean.skuType!=null">
 				sku_type = #{bean.skuType}
 			</if>
-			<if test="bean.color_type!=null">
+			<if test="bean.colorType!=null">
 				color_type = #{bean.colorType}
 			</if>
-			<if test="bean.create_time!=null">
+			<if test="bean.createTime!=null">
 				create_time = #{bean.createTime}
 			</if>
-			<if test="bean.create_data!=null">
+			<if test="bean.createData!=null">
 				create_data = #{bean.createData}
 			</if>
 			<if test="bean.stock!=null">
@@ -373,33 +373,33 @@
 
 	<!-- 根据Code更新 -->
 	<update id="updateByCode" parameterType="com.easyjava.entity.po.ProductInfo">
-		update from tb_product_info
+		update tb_product_info
 		<set>
 			<if test="bean.id!=null">
 				id = #{bean.id}
 			</if>
-			<if test="bean.company_id!=null">
+			<if test="bean.companyId!=null">
 				company_id = #{bean.companyId}
 			</if>
 			<if test="bean.code!=null">
 				code = #{bean.code}
 			</if>
-			<if test="bean.product_name!=null">
+			<if test="bean.productName!=null">
 				product_name = #{bean.productName}
 			</if>
 			<if test="bean.price!=null">
 				price = #{bean.price}
 			</if>
-			<if test="bean.sku_type!=null">
+			<if test="bean.skuType!=null">
 				sku_type = #{bean.skuType}
 			</if>
-			<if test="bean.color_type!=null">
+			<if test="bean.colorType!=null">
 				color_type = #{bean.colorType}
 			</if>
-			<if test="bean.create_time!=null">
+			<if test="bean.createTime!=null">
 				create_time = #{bean.createTime}
 			</if>
-			<if test="bean.create_data!=null">
+			<if test="bean.createData!=null">
 				create_data = #{bean.createData}
 			</if>
 			<if test="bean.stock!=null">
@@ -424,33 +424,33 @@
 
 	<!-- 根据SkuTypeAndColorType更新 -->
 	<update id="updateBySkuTypeAndColorType" parameterType="com.easyjava.entity.po.ProductInfo">
-		update from tb_product_info
+		update tb_product_info
 		<set>
 			<if test="bean.id!=null">
 				id = #{bean.id}
 			</if>
-			<if test="bean.company_id!=null">
+			<if test="bean.companyId!=null">
 				company_id = #{bean.companyId}
 			</if>
 			<if test="bean.code!=null">
 				code = #{bean.code}
 			</if>
-			<if test="bean.product_name!=null">
+			<if test="bean.productName!=null">
 				product_name = #{bean.productName}
 			</if>
 			<if test="bean.price!=null">
 				price = #{bean.price}
 			</if>
-			<if test="bean.sku_type!=null">
+			<if test="bean.skuType!=null">
 				sku_type = #{bean.skuType}
 			</if>
-			<if test="bean.color_type!=null">
+			<if test="bean.colorType!=null">
 				color_type = #{bean.colorType}
 			</if>
-			<if test="bean.create_time!=null">
+			<if test="bean.createTime!=null">
 				create_time = #{bean.createTime}
 			</if>
-			<if test="bean.create_data!=null">
+			<if test="bean.createData!=null">
 				create_data = #{bean.createData}
 			</if>
 			<if test="bean.stock!=null">

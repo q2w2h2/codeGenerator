@@ -155,16 +155,16 @@
 	<!-- 添加 批量插入 -->
 	<insert id="insertBatch" parameterType="com.easyjava.entity.po.User">
 		INSERT INTO user(username,password,email)values
-		<foreach collection="list" item="item" separator="," open="(" close=")">
-			#{item.username},#{item.password},#{item.email}
+		<foreach collection="list" item="item" separator=",">
+			(#{item.username},#{item.password},#{item.email})
 		</foreach>
 	</insert>
 
 	<!-- 添加或修改 批量插入或更新 -->
 	<insert id="insertOrUpdateBatch" parameterType="com.easyjava.entity.po.User">
 		INSERT INTO user(username,password,email)values
-		<foreach collection="list" item="item" separator="," open="(" close=")">
-			#{item.username},#{item.password},#{item.email}
+		<foreach collection="list" item="item" separator=",">
+			(#{item.username},#{item.password},#{item.email})
 		</foreach>
 		on DUPLICATE key update id = VALUES(id),username = VALUES(username),password = VALUES(password),email = VALUES(email)
 	</insert>
@@ -176,7 +176,7 @@
 
 	<!-- 根据Id更新 -->
 	<update id="updateById" parameterType="com.easyjava.entity.po.User">
-		update from user
+		update user
 		<set>
 			<if test="bean.id!=null">
 				id = #{bean.id}
