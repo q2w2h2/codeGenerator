@@ -3,9 +3,9 @@ package com.easyjava.entity.query;
 /**
  * @Description: 用户表查询对象
  * @author: 小阙
- * @date: 2023/05/16
+ * @date: 2023/05/19
  */
-public class UserQuery {
+public class UserQuery extends BaseQuery {
 	/**
 	 * ID
 	 */

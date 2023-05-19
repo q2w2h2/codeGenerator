@@ -6,13 +6,13 @@
 	<!-- 实体映射 -->
 	<resultMap id="base_result_map" type="com.easyjava.entity.po.User">
 
-		<!-- ID-->
+		<!-- ID -->
 		<id column="id" property="id"/>
-		<!-- 用户名-->
+		<!-- 用户名 -->
 		<result column="username" property="username"/>
-		<!-- 密码-->
+		<!-- 密码 -->
 		<result column="password" property="password"/>
-		<!-- 邮箱-->
+		<!-- 邮箱 -->
 		<result column="email" property="email"/>
 
 	</resultMap>
@@ -21,7 +21,7 @@
 		id,username,password,email
 	</sql>
 	<!-- 基础查询条件 -->
-	<sql id="base_column_list">
+	<sql id="base_query_condition">
 		<if test="query.id != null">
 			and id = #{query.id}
 		</if>
@@ -36,4 +36,35 @@
 		</if>
 
 	</sql>
+	<!-- 拓展的查询条件 -->
+	<sql id="base_query_condition_extend">
+		<if test="query.usernameFuzzy != null and query.usernameFuzzy !=''">
+			 and username like count('%', #{query.usernameFuzzy}, '%')
+		</if>
+		<if test="query.passwordFuzzy != null and query.passwordFuzzy !=''">
+			 and password like count('%', #{query.passwordFuzzy}, '%')
+		</if>
+		<if test="query.emailFuzzy != null and query.emailFuzzy !=''">
+			 and email like count('%', #{query.emailFuzzy}, '%')
+		</if>
+
+	</sql>
+
+	<!-- 通用查询条件 -->
+	<sql id="query_condition">
+		<where>
+			<include refid="base_query_condition"/>
+			<include refid="base_query_condition_extend"/>
+		</where>
+	</sql>
+	<!-- 查询列表 -->
+	<select id="selectList" resultMap="base_result_map">
+		SELECT <include refid="base_column_list"/> FROM user <include refid="query_condition"/>
+		<if test="query.orderBy!=null">order by ${query.orderBy}</if>
+		<if test="query.simplePage!=null">limit #{query.simplePage.start},#{query.simplePage.end}</if>
+	</select>
+	<!-- 查询数量 -->
+	<select id="selectCount" resultMap="java.lang.Long">
+		SELECT count(1) FROM user <include refid="query_condition"/>
+	</select>
 </mapper>

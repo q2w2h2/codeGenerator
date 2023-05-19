@@ -6,9 +6,9 @@ import java.util.Date;
 /**
  * @Description: 商品信息查询对象
  * @author: 小阙
- * @date: 2023/05/16
+ * @date: 2023/05/19
  */
-public class ProductInfoQuery {
+public class ProductInfoQuery extends BaseQuery {
 	/**
 	 * 自增id
 	 */

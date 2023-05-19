@@ -4,23 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成mapper 目前 生成mapper">
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/UserQuery.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/ProductInfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/UserMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/ProductInfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/UserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildMapperXml.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成mapper 目前 生成xml 拓展的查询条件 删除DateUtils中多余代码">
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/BaseParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/BaseQuery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/SimplePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/enums/PageSize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/BaseQuery.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/PageSize.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/SimplePage.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/ProductInfoQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/ProductInfoQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/UserQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/UserQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/ProductInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/ProductInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/UserMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/utils/DateUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/utils/DateUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/TableInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/TableInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/ProductInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/ProductInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/resources/com/easyjava/mappers/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava.iml" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildMapperXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildMapperXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildPo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildPo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildQuery.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/utils/RunUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/utils/RunUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava/src/main/resources/template/DateUtils.txt" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/DateUtils.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +88,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
+    "project.structure.last.edited": "Facet",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "File.Encoding",
@@ -186,7 +195,10 @@
       <workItem from="1684025326547" duration="16055000" />
       <workItem from="1684152999381" duration="9480000" />
       <workItem from="1684202724000" duration="5496000" />
-      <workItem from="1684228370781" duration="8543000" />
+      <workItem from="1684228370781" duration="13543000" />
+      <workItem from="1684333050882" duration="611000" />
+      <workItem from="1684469818815" duration="7687000" />
+      <workItem from="1684478761273" duration="939000" />
     </task>
     <task id="LOCAL-00001" summary="代码生成器初始化">
       <created>1683460544012</created>
@@ -328,7 +340,35 @@
       <option name="project" value="LOCAL" />
       <updated>1684208420824</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="生成mapper 目前 生成xml 实体映射,通用查询条件 TableInfo添加fieldExtendList属性 在BuildTable中生成实体拓展属性优化BuildQuery对拓展属性的生成">
+      <created>1684244323889</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1684244323889</updated>
+    </task>
+    <task id="LOCAL-00022" summary="生成mapper 目前 生成xml 实体映射,通用查询条件 TableInfo添加fieldExtendList属性 在BuildTable中生成实体拓展属性优化BuildQuery对拓展属性的生成">
+      <created>1684244380851</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1684244380851</updated>
+    </task>
+    <task id="LOCAL-00023" summary="支线-添加BuildTable的注解">
+      <created>1684246547064</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1684246547064</updated>
+    </task>
+    <task id="LOCAL-00024" summary="生成mapper 目前 生成xml 拓展的查询条件 删除DateUtils中多余代码">
+      <created>1684248626984</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1684248626984</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,7 +405,11 @@
     <MESSAGE value="生成mapper 目前 生成baseMapper" />
     <MESSAGE value="生成mapper 目前 生成mapper基本结构 修复日期格式不正确问题,优化一些意思模糊代码的命名" />
     <MESSAGE value="生成mapper 目前 生成mapper" />
-    <option name="LAST_COMMIT_MESSAGE" value="生成mapper 目前 生成mapper" />
+    <MESSAGE value="生成mapper 目前 生成xml 实体映射,通用查询条件 TableInfo添加fieldExtendList属性 在BuildTable中生成实体拓展属性优化BuildQuery对拓展属性的生成" />
+    <MESSAGE value="支线-添加BuildTable的注解" />
+    <MESSAGE value="删除DateUtils中多余代码" />
+    <MESSAGE value="生成mapper 目前 生成xml 拓展的查询条件 删除DateUtils中多余代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="生成mapper 目前 生成xml 拓展的查询条件 删除DateUtils中多余代码" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

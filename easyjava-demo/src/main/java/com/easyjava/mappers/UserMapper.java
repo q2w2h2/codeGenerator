@@ -5,7 +5,7 @@ import org.springframework.data.repository.query.Param;
 /**
  * @Description: 用户表Mapper对象
  * @author: 小阙
- * @date: 2023/05/16
+ * @date: 2023/05/19
  */
 public interface UserMapper<T, P> extends BaseMapper {
 	/**

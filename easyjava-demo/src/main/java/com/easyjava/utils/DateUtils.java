@@ -43,6 +43,3 @@ public class DateUtils {
         return null;
     }
 }
-
-<?xml version=1.0 encoding="utf-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
