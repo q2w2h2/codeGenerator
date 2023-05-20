@@ -15,6 +15,7 @@ public class BuildBase {
     public static String PACKAGE_ENUMS = "package " + Constants.PACKAGE_ENUMS + ";";
     public static String PACKAGE_MAPPERS = "package " + Constants.PACKAGE_MAPPERS + ";";
     public static String PACKAGE_QUERY = "package " + Constants.PACKAGE_QUERY + ";";
+    public static String PACKAGE_VO = "package " + Constants.PACKAGE_VO + ";";
 
     public static void execute() {
         List<String> headerInfoList = new ArrayList<String>();
@@ -49,6 +50,11 @@ public class BuildBase {
         //生成baseQuery
         headerInfoList.add(PACKAGE_QUERY);
         build(headerInfoList, "BaseQuery", Constants.PATH_QUERY);
+        headerInfoList.clear();
+
+        //生成paginationResultVO
+        headerInfoList.add(PACKAGE_VO);
+        build(headerInfoList, "PaginationResultVO", Constants.PATH_VO);
         headerInfoList.clear();
 
     }

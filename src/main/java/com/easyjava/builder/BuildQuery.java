@@ -33,9 +33,7 @@ public class BuildQuery {
             outw = new OutputStreamWriter(out, "utf-8");
             bw = new BufferedWriter(outw);
 
-            bw.write("package " + Constants.PACKAGE_QUERY + ";");
-            bw.newLine();
-            bw.newLine();
+
 
             if (tableInfo.getHaveDateTime()) {
                 bw.write("import java.math.BigDecimal;");

@@ -25,7 +25,6 @@ public class BuildComment {
     }
 
     public static void buildFieldComment(BufferedWriter bw, String comment) throws IOException {
-
         if (comment == null) {
             comment = "";
         }
@@ -37,7 +36,15 @@ public class BuildComment {
         bw.newLine();
     }
 
-    public static void buildMethodComment(BufferedWriter bw, String comment) {
-
+    public static void buildMethodComment(BufferedWriter bw, String comment) throws IOException{
+        if (comment == null) {
+            comment = "";
+        }
+        bw.write("\t/**");
+        bw.newLine();
+        bw.write("\t * " + comment);
+        bw.newLine();
+        bw.write("\t */");
+        bw.newLine();
     }
 }
