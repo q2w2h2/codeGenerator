@@ -5,15 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="419e8c8c-baba-4369-bca3-933b550859cb" name="更改" comment="生成mapper 目前 增加复用">
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/ProductInfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/impl/ProductInfoServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/vo/PaginationResultVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava-demo/src/test/java/PaginationResultVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easyjava/src/main/resources/template/PaginationResultVO.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/ProductInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/po/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/ProductInfoQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/ProductInfoQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/UserQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/entity/query/UserQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/ProductInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/ProductInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/mappers/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/ProductInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/ProductInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/impl/ProductInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/impl/ProductInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava-demo/src/main/java/com/easyjava/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/bean/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/utils/RunUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/utils/RunUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildComment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildQuery.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildQuery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildService.java" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/java/com/easyjava/builder/BuildService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/easyjava/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/easyjava/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +51,7 @@
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/easyjava" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProblemsViewState">
@@ -64,7 +75,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "xiaodong",
+    "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "1.8",
     "last_opened_file_path": "E:/code/workspace-easyjava/easyjava-demo/src/main",
     "node.js.detected.package.eslint": "true",
@@ -162,6 +173,7 @@
       <workItem from="1684333050882" duration="611000" />
       <workItem from="1684469818815" duration="7687000" />
       <workItem from="1684478761273" duration="24669000" />
+      <workItem from="1684555693607" duration="4111000" />
     </task>
     <task id="LOCAL-00001" summary="代码生成器初始化">
       <created>1683460544012</created>

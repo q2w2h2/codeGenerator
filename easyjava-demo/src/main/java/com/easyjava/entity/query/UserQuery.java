@@ -3,7 +3,7 @@ package com.easyjava.entity.query;
 /**
  * @Description: 用户表查询对象
  * @author: 小阙
- * @date: 2023/05/19
+ * @date: 2023/05/20
  */
 public class UserQuery extends BaseQuery {
 	/**

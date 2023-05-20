@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * @Description: 用户表
  * @author: 小阙
- * @date: 2023/05/19
+ * @date: 2023/05/20
  */
 public class User implements Serializable {
 	/**

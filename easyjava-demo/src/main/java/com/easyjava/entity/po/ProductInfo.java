@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * @Description: 商品信息
  * @author: 小阙
- * @date: 2023/05/19
+ * @date: 2023/05/20
  */
 public class ProductInfo implements Serializable {
 	/**
